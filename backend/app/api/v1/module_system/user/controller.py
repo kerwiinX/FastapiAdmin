@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
+import urllib.parse
 from fastapi import APIRouter, Depends, Body, Path, Query, Form, File, UploadFile, Request
 from fastapi.responses import JSONResponse, StreamingResponse
 from sqlalchemy.ext.asyncio import AsyncSession
-import urllib.parse
 
 from app.common.response import StreamResponse, SuccessResponse
 from app.common.request import PaginationService
@@ -13,6 +13,7 @@ from app.core.dependencies import db_getter, get_current_user, AuthPermission
 from app.core.base_params import PaginationQueryParam
 from app.core.base_schema import BatchSetAvailable
 from app.core.logger import logger
+
 from ..auth.schema import AuthSchema
 from .service import UserService
 from .param import UserQueryParam

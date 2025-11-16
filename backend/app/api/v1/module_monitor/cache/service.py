@@ -4,6 +4,7 @@ from redis.asyncio.client import Redis
 
 from app.common.enums import RedisInitKeyConfig
 from app.core.redis_crud import RedisCURD
+
 from .schema import CacheMonitorSchema, CacheInfoSchema
 
 

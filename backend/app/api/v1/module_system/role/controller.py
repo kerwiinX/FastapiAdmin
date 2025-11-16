@@ -11,6 +11,7 @@ from app.core.base_params import PaginationQueryParam
 from app.core.dependencies import AuthPermission
 from app.core.base_schema import BatchSetAvailable
 from app.core.logger import logger
+
 from ..auth.schema import AuthSchema
 from .service import RoleService
 from .param import RoleQueryParam

@@ -3,6 +3,7 @@
 from typing import Dict, List, Optional, Sequence, Union, Any
 
 from app.core.base_crud import CRUDBase
+
 from app.api.v1.module_system.auth.schema import AuthSchema
 from .model import DemoModel
 from .schema import DemoCreateSchema, DemoUpdateSchema, DemoOutSchema

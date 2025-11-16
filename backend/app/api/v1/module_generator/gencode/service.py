@@ -1,7 +1,6 @@
 # -*- coding:utf-8 -*-
 
 import io
-import json
 import os
 import zipfile
 from typing import Any, List, Dict, Literal, Optional
@@ -11,9 +10,10 @@ from sqlglot import parse as sqlglot_parse
 from app.config.setting import settings
 from app.core.logger import logger
 from app.core.exceptions import CustomException
-from app.api.v1.module_system.auth.schema import AuthSchema
 from app.utils.gen_util import GenUtils
 from app.utils.jinja2_template_util import Jinja2TemplateUtil
+
+from app.api.v1.module_system.auth.schema import AuthSchema
 from .schema import GenTableSchema, GenTableOutSchema, GenTableColumnSchema,  GenTableColumnOutSchema
 from .param import GenTableQueryParam
 from .crud import GenTableColumnCRUD, GenTableCRUD

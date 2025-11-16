@@ -7,9 +7,10 @@ from fastapi.routing import APIRoute
 from user_agents import parse
 import json
 
-from app.core.database import session_connect
+from app.core.database import async_db_session
 from app.config.setting import settings
 from app.utils.ip_local_util import IpLocalUtil
+
 from app.api.v1.module_system.auth.schema import AuthSchema
 from app.api.v1.module_system.log.schema import OperationLogCreateSchema
 from app.api.v1.module_system.log.service import OperationLogService
@@ -121,7 +122,7 @@ class OperationLogRoute(APIRoute):
                 # 如果请求来自api文档，则不记录日志
                 pass
             else:
-                async with session_connect() as session:
+                async with async_db_session() as session:
                     async with session.begin():
                         auth = AuthSchema(db=session)
                         await OperationLogService.create_log_service(data=OperationLogCreateSchema(

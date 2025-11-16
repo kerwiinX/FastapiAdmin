@@ -4,7 +4,7 @@ from typing import List, Dict, Optional
 
 from app.core.base_schema import BatchSetAvailable
 from app.core.exceptions import CustomException
-from app.core.logger import logger
+
 from app.api.v1.module_system.auth.schema import AuthSchema
 from .schema import ApplicationCreateSchema, ApplicationUpdateSchema, ApplicationOutSchema
 from .param import ApplicationQueryParam

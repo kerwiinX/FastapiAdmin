@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 
 from enum import Enum
+
 from app.config.setting import settings
+
 
 class RET(Enum):
     """

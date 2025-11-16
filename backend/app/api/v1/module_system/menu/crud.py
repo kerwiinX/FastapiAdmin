@@ -3,6 +3,7 @@
 from typing import Dict, List, Optional, Sequence, Union, Any
 
 from app.core.base_crud import CRUDBase
+
 from ..auth.schema import AuthSchema
 from .model import MenuModel
 from .schema import MenuCreateSchema, MenuUpdateSchema

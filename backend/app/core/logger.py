@@ -6,7 +6,7 @@ from pathlib import Path
 from loguru import logger
 
 from app.config.setting import settings
-from app.utils.common_util import worship
+
 
 class InterceptHandler(logging.Handler):
     """

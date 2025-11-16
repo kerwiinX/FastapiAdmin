@@ -14,15 +14,16 @@ from app.utils.common_util import get_random_character
 from app.utils.captcha_util import CaptchaUtil
 from app.utils.ip_local_util import IpLocalUtil
 from app.utils.hash_bcrpy_util import PwdUtil
+from app.core.redis_crud import RedisCURD
+from app.core.exceptions import CustomException
+from app.core.logger import logger
+from app.config.setting import settings
 from app.core.security import (
     CustomOAuth2PasswordRequestForm,
     create_access_token,
     decode_access_token
 )
-from app.core.redis_crud import RedisCURD
-from app.core.exceptions import CustomException
-from app.core.logger import logger
-from app.config.setting import settings
+
 from app.api.v1.module_monitor.online.schema import OnlineOutSchema
 from ..user.crud import UserCRUD
 from ..user.model import UserModel

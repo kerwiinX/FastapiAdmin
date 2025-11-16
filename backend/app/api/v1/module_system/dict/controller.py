@@ -13,6 +13,7 @@ from app.core.router_class import OperationLogRoute
 from app.core.logger import logger
 from app.common.request import PaginationService
 from app.utils.common_util import bytes2file_response
+
 from ..auth.schema import AuthSchema
 from .param import DictTypeQueryParam, DictDataQueryParam
 from .service import DictTypeService, DictDataService

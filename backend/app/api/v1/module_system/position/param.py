@@ -5,6 +5,7 @@ from fastapi import Query
 
 from app.core.validator import DateTimeStr
 
+
 class PositionQueryParam:
     """岗位管理查询参数"""
 

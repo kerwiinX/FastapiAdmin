@@ -6,14 +6,14 @@
 
 from datetime import datetime
 from typing import Optional, List
-
 from sqlalchemy import Boolean, String, Integer, DateTime, ForeignKey, Text
 from sqlalchemy.orm import relationship, Mapped, mapped_column
+
+from app.core.base_model import MappedBase
 
 from app.api.v1.module_system.dept.model import DeptModel
 from app.api.v1.module_system.position.model import PositionModel
 from app.api.v1.module_system.role.model import RoleModel
-from app.core.base_model import MappedBase
 
 
 class UserRolesModel(MappedBase):

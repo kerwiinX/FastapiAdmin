@@ -17,6 +17,7 @@ from app.core.dependencies import (
     get_current_user,
     redis_getter
 )
+
 from .service import (
     LoginService,
     CaptchaService

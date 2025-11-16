@@ -2,9 +2,9 @@
 
 from typing import Optional
 from pydantic import BaseModel, ConfigDict, Field, field_validator
+from urllib.parse import urlparse
 
 from app.core.base_schema import BaseSchema
-from urllib.parse import urlparse
 
 
 class ApplicationCreateSchema(BaseModel):

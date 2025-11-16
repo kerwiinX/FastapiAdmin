@@ -4,12 +4,12 @@ from typing import Dict, List, Optional, Sequence, Union, Any
 from datetime import datetime
 
 from app.core.base_crud import CRUDBase
+
+from app.api.v1.module_system.auth.schema import AuthSchema
 from .model import UserModel
 from .schema import UserCreateSchema, UserForgetPasswordSchema, UserUpdateSchema
 from ..role.crud import RoleCRUD
 from ..position.crud import PositionCRUD
-
-from app.api.v1.module_system.auth.schema import AuthSchema
 
 
 class UserCRUD(CRUDBase[UserModel, UserCreateSchema, UserUpdateSchema]):

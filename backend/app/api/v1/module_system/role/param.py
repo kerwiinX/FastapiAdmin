@@ -5,6 +5,7 @@ from fastapi import Query
 
 from app.core.validator import DateTimeStr
 
+
 class RoleQueryParam:
     """角色管理查询参数"""
 

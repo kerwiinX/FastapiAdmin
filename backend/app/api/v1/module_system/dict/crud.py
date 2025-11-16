@@ -3,6 +3,7 @@
 from typing import Dict, List, Optional, Sequence, Union, Any
 
 from app.core.base_crud import CRUDBase
+
 from app.api.v1.module_system.dict.model import DictDataModel, DictTypeModel
 from app.api.v1.module_system.dict.schema import DictDataCreateSchema, DictDataUpdateSchema, DictTypeCreateSchema, DictTypeUpdateSchema
 from app.api.v1.module_system.auth.schema import AuthSchema

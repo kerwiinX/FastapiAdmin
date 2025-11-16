@@ -2,11 +2,13 @@
 
 from typing import Optional, List
 from pydantic import BaseModel, ConfigDict, Field, EmailStr, field_validator
+from urllib.parse import urlparse
 
 from app.core.validator import DateTimeStr, mobile_validator
 from app.core.base_schema import BaseSchema, CommonSchema
+
 from app.api.v1.module_system.role.schema import RoleOutSchema
-from urllib.parse import urlparse
+
 
 class CurrentUserUpdateSchema(BaseModel):
     """基础用户信息"""

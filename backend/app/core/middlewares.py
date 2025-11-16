@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 import time
-import json
 from typing import Any
 from starlette.middleware.cors import CORSMiddleware
 from starlette.types import ASGIApp
@@ -14,6 +13,7 @@ from app.common.response import ErrorResponse
 from app.config.setting import settings
 from app.core.logger import logger
 from app.core.exceptions import CustomException
+
 from app.api.v1.module_system.params.service import ParamsService
 
 
@@ -41,12 +41,15 @@ class RequestLogMiddleware(BaseHTTPMiddleware):
         self, request: Request, call_next: RequestResponseEndpoint
     ) -> Response:
         start_time = time.time()
-
-        # 构建请求日志信息
-        request_info = f"请求方法: {request.method}, 请求路径: {request.url.path}"
-        if request.client:
-            request_info = f"请求来源: {request.client.host}, {request_info}"
-        logger.info(request_info)
+        session_id = request.scope.get('session_id')
+        # 组装请求日志字段
+        log_fields = [
+            f"会话ID: {session_id}",
+            f"请求来源: {request.client.host if request.client else '未知'}",
+            f"请求方法: {request.method}",
+            f"请求路径: {request.url.path}",
+        ]
+        logger.info(log_fields)
 
         try:
             # 初始化响应变量
@@ -116,13 +119,12 @@ class RequestLogMiddleware(BaseHTTPMiddleware):
             response.headers["X-Process-Time"] = str(process_time)
             
             # 构建响应日志信息
-            session_id = request.scope.get('session_id')
+            
             content_length = response.headers.get('content-length', '0')
             response_info = (
-                f"会话ID: {session_id}, "
                 f"响应状态: {response.status_code}, "
                 f"响应内容长度: {content_length}, "
-                f"处理时间: {process_time}s"
+                f"处理时间: {process_time * 1000}ms"
             )
             logger.info(response_info)
             

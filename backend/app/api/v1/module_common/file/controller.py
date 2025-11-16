@@ -9,7 +9,9 @@ from app.core.router_class import OperationLogRoute
 from app.core.logger import logger
 from app.common.response import SuccessResponse, UploadFileResponse
 from app.utils.upload_util import UploadUtil
+
 from .service import FileService
+
 
 FileRouter = APIRouter(route_class=OperationLogRoute, prefix="/file", tags=["文件管理"])
 

@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
+import re
 from typing import Optional
 from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 
 from app.core.base_schema import BaseSchema
-import re
 
 
 class OperationLogCreateSchema(BaseModel):
