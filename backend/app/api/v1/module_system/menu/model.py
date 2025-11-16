@@ -5,7 +5,6 @@
 """
 
 from typing import Optional, List, TYPE_CHECKING
-
 from sqlalchemy import Boolean, String, Integer, JSON, ForeignKey
 from sqlalchemy.orm import relationship, Mapped, mapped_column
 

@@ -5,6 +5,7 @@ from fastapi import Query
 
 from app.core.validator import DateTimeStr
 
+
 class TenantQueryParam:
     """租户查询参数"""
 

@@ -1,6 +1,5 @@
 # -*- coding:utf-8 -*-
 
-import json
 import os
 from datetime import datetime
 from jinja2.environment import Environment
@@ -9,9 +8,10 @@ from typing import List, Any, Set
 
 from app.common.constant import GenConstant
 from app.config.setting import settings
-from app.api.v1.module_generator.gencode.schema import GenTableOutSchema, GenTableColumnOutSchema
 from app.utils.common_util import CamelCaseUtil, SnakeCaseUtil
 from app.utils.string_util import StringUtil
+
+from app.api.v1.module_generator.gencode.schema import GenTableOutSchema, GenTableColumnOutSchema
 
 
 class Jinja2TemplateUtil:
@@ -107,7 +107,7 @@ class Jinja2TemplateUtil:
             'function_name': function_name if StringUtil.is_not_empty(function_name) else '【请填写功能名称】',
             'class_name': class_name,
             'module_name': module_name,
-            'business_name': business_name.capitalize(),
+            'business_name': business_name,
             'base_package': cls.get_package_prefix(package_name),
             'package_name': package_name,
             'datetime': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),

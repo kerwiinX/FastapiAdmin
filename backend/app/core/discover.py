@@ -17,7 +17,7 @@ from __future__ import annotations
 
 import importlib
 from pathlib import Path
-from typing import Dict, Iterable, Optional, Set, Tuple, List
+from typing import Dict, Iterable, Optional, Set, Tuple
 
 from fastapi import APIRouter
 

@@ -10,6 +10,7 @@ from app.core.router_class import OperationLogRoute
 from app.core.dependencies import AuthPermission
 from app.core.base_params import PaginationQueryParam
 from app.core.logger import logger
+
 from ..auth.schema import AuthSchema
 from .param import OperationLogQueryParam
 from .service import OperationLogService

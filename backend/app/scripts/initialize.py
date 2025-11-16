@@ -8,9 +8,10 @@ from sqlalchemy import select, func
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.core.logger import logger
-from app.core.database import AsyncSessionLocal, async_engine
+from app.core.database import async_db_session, async_engine
 from app.core.base_model import MappedBase
 from app.config.setting import settings
+
 from app.api.v1.module_system.user.model import UserModel, UserRolesModel
 from app.api.v1.module_system.role.model import RoleModel
 from app.api.v1.module_system.dept.model import DeptModel
@@ -159,7 +160,7 @@ class InitializeData:
         await self.__init_create_table()
         
         # 再初始化数据
-        async with AsyncSessionLocal() as session:
+        async with async_db_session() as session:
             async with session.begin():
                 await self.__init_data(session)
                 # 确保提交事务

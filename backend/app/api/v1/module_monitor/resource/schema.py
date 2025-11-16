@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from typing import Optional, List, Dict, Any
+from typing import Optional, List
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
-from pathlib import Path
 from urllib.parse import urlparse
 
 

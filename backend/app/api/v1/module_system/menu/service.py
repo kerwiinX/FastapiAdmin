@@ -11,6 +11,7 @@ from app.utils.common_util import (
     get_child_recursion,
     traversal_to_tree
 )
+
 from ..auth.schema import AuthSchema
 from .param import MenuQueryParam
 from .crud import MenuCRUD

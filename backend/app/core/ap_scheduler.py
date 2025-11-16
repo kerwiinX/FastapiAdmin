@@ -3,7 +3,6 @@
 import json
 import importlib
 from datetime import datetime
-from sqlalchemy.orm.session import Session
 from typing import Union, List, Any, Optional
 from asyncio import iscoroutinefunction
 from apscheduler.job import Job
@@ -19,13 +18,13 @@ from apscheduler.triggers.date import DateTrigger
 from apscheduler.triggers.interval import IntervalTrigger
 from concurrent.futures import ThreadPoolExecutor
 
-from app.api.v1.module_application.job.model import JobModel
 from app.config.setting import settings
-from app.core.database import SessionLocal, AsyncSessionLocal, engine
+from app.core.database import engine, db_session, async_db_session
 from app.core.exceptions import CustomException
 from app.core.logger import logger
 from app.utils.cron_util import CronUtil
 
+from app.api.v1.module_application.job.model import JobModel
 
 job_stores = {
     'default': MemoryJobStore(),
@@ -138,7 +137,7 @@ class SchedulerUtil:
         返回:
         - None
         """
-        with SessionLocal() as session:
+        with db_session() as session:
             try:
                 session.add(job_log)
                 session.commit()
@@ -161,7 +160,7 @@ class SchedulerUtil:
         from app.api.v1.module_system.auth.schema import AuthSchema
         logger.info('🔎 开始启动定时任务...')
         scheduler.start()
-        async with AsyncSessionLocal() as session:
+        async with async_db_session() as session:
             async with session.begin():
                 auth = AuthSchema(db=session)
                 job_list = await JobCRUD(auth).get_obj_list_crud()

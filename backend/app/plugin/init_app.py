@@ -14,11 +14,12 @@ from fastapi.openapi.docs import (
 from app.config.setting import settings
 from app.core.ap_scheduler import SchedulerUtil
 from app.core.logger import logger
-from app.utils.common_util import import_module, import_modules_async, worship
+from app.utils.common_util import import_module, import_modules_async
 from app.utils.console import run as console_run
 from app.core.exceptions import handle_exception
 from app.core.discover import router
 from app.scripts.initialize import InitializeData
+
 from app.api.v1.module_system.params.service import ParamsService
 from app.api.v1.module_system.dict.service import DictDataService
 

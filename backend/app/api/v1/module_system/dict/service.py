@@ -6,11 +6,12 @@ from redis.asyncio.client import Redis
 
 from app.common.enums import RedisInitKeyConfig
 from app.utils.excel_util import ExcelUtil
-from app.core.database import AsyncSessionLocal
+from app.core.database import async_db_session
 from app.core.base_schema import BatchSetAvailable
 from app.core.redis_crud import RedisCURD
 from app.core.exceptions import CustomException
 from app.core.logger import logger
+
 from app.api.v1.module_system.auth.schema import AuthSchema
 from .schema import DictDataCreateSchema,DictDataOutSchema,DictDataUpdateSchema,DictTypeCreateSchema,DictTypeOutSchema,DictTypeUpdateSchema
 from .param import DictDataQueryParam, DictTypeQueryParam
@@ -280,7 +281,7 @@ class DictDataService:
         返回:
         - None
         """
-        async with AsyncSessionLocal() as session:
+        async with async_db_session() as session:
             async with session.begin():
                 auth = AuthSchema(db=session)
                 obj_list = await DictTypeCRUD(auth).get_obj_list_crud()

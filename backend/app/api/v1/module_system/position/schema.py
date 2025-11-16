@@ -4,7 +4,7 @@ from typing import Optional
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 from app.core.base_schema import BaseSchema
-from app.core.validator import DateTimeStr
+
 
 class PositionCreateSchema(BaseModel):
     """岗位创建模型"""

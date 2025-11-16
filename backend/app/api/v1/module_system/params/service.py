@@ -8,13 +8,14 @@ from fastapi import UploadFile
 from redis.asyncio.client import Redis
 
 from app.common.enums import RedisInitKeyConfig
-from app.core.database import AsyncSessionLocal
+from app.core.database import async_db_session
 from app.core.redis_crud import RedisCURD
 from app.utils.excel_util import ExcelUtil
 from app.utils.upload_util import UploadUtil
 from app.core.base_schema import UploadResponseSchema
 from app.core.exceptions import CustomException
 from app.core.logger import logger
+
 from ..auth.schema import AuthSchema
 from .param import ParamsQueryParam
 from .schema import ParamsOutSchema, ParamsUpdateSchema, ParamsCreateSchema
@@ -276,7 +277,7 @@ class ParamsService:
         返回:
         - None
         """
-        async with AsyncSessionLocal() as session:
+        async with async_db_session() as session:
             async with session.begin():
                 auth = AuthSchema(db=session)
                 config_obj = await ParamsCRUD(auth).get_obj_list_crud()

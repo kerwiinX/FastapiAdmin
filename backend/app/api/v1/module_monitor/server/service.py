@@ -8,6 +8,7 @@ from pathlib import Path
 from typing import List, Dict
 
 from app.utils.common_util import bytes2human
+
 from .schema import (
     CpuInfoSchema,
     MemoryInfoSchema,

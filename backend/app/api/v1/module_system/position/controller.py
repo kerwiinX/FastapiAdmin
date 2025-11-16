@@ -11,6 +11,7 @@ from app.core.router_class import OperationLogRoute
 from app.core.dependencies import AuthPermission
 from app.core.base_schema import BatchSetAvailable
 from app.core.logger import logger
+
 from ..auth.schema import AuthSchema
 from .service import PositionService
 from .param import PositionQueryParam

@@ -9,13 +9,14 @@ from sqlalchemy import asc, func, select, delete, Select, desc, update, or_, and
 from sqlalchemy import inspect as sa_inspect
 
 from app.core.base_model import MappedBase
-from app.api.v1.module_system.auth.schema import AuthSchema
-from app.api.v1.module_system.dept.model import DeptModel
-from app.api.v1.module_system.user.model import UserModel
 from app.utils.common_util import get_child_id_map, get_child_recursion
 from app.core.exceptions import CustomException
 from app.common.request import PageResultSchema
 from app.core.serialize import Serialize
+
+from app.api.v1.module_system.auth.schema import AuthSchema
+from app.api.v1.module_system.dept.model import DeptModel
+from app.api.v1.module_system.user.model import UserModel
 
 ModelType = TypeVar("ModelType", bound=MappedBase)
 CreateSchemaType = TypeVar("CreateSchemaType", bound=BaseModel)

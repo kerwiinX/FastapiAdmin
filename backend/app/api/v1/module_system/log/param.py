@@ -5,6 +5,7 @@ from fastapi import Query
 
 from app.core.validator import DateTimeStr
 
+
 class OperationLogQueryParam:
     """操作日志查询参数"""
 

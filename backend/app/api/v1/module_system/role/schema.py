@@ -6,6 +6,7 @@ from pydantic import BaseModel, ConfigDict, Field, model_validator, field_valida
 from app.core.base_schema import BaseSchema
 from app.core.validator import role_permission_request_validator
 from app.core.validator import DateTimeStr
+
 from ..dept.schema import DeptOutSchema
 from ..menu.schema import MenuOutSchema
 

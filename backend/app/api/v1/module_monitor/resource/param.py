@@ -3,6 +3,7 @@
 from typing import Optional
 from fastapi import Query
 
+
 class ResourceSearchQueryParam:
     """资源搜索查询参数"""
 

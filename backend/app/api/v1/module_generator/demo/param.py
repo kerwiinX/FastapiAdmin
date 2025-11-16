@@ -5,6 +5,7 @@ from fastapi import Query
 
 from app.core.validator import DateTimeStr
 
+
 class DemoQueryParam:
     """示例查询参数"""
 

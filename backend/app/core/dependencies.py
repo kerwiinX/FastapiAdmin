@@ -8,15 +8,16 @@ from typing import AsyncGenerator, Optional
 from fastapi import Depends, Request
 from fastapi import Depends
 
+from app.common.enums import RedisInitKeyConfig
+from app.core.exceptions import CustomException
+from app.core.database import async_db_session
+from app.core.redis_crud import RedisCURD
+from app.core.security import OAuth2Schema, decode_access_token
+from app.core.logger import logger
+
 from app.api.v1.module_system.user.schema import UserOutSchema
 from app.api.v1.module_system.user.model import UserModel
 from app.api.v1.module_system.role.model import RoleModel
-from app.common.enums import RedisInitKeyConfig
-from app.core.exceptions import CustomException
-from app.core.database import session_connect
-from app.core.security import OAuth2Schema, decode_access_token
-from app.core.logger import logger
-from app.core.redis_crud import RedisCURD
 from app.api.v1.module_system.user.crud import UserCRUD
 from app.api.v1.module_system.auth.schema import AuthSchema
 
@@ -27,7 +28,7 @@ async def db_getter() -> AsyncGenerator[AsyncSession, None]:
     返回:
     - AsyncSession: 数据库会话连接
     """
-    async with session_connect() as session:
+    async with async_db_session() as session:
         async with session.begin():
             yield session
 

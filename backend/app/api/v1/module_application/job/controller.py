@@ -10,6 +10,7 @@ from app.core.base_params import PaginationQueryParam
 from app.core.dependencies import AuthPermission
 from app.core.router_class import OperationLogRoute
 from app.core.logger import logger
+
 from app.api.v1.module_system.auth.schema import AuthSchema
 from .param import JobQueryParam, JobLogQueryParam
 from .service import JobService, JobLogService

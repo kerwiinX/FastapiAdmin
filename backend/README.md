@@ -1,6 +1,6 @@
 # FastApiAdmin - Backend
 
-一个基于 FastAPI 的现代化后端管理系统，为前端 Vue3 管理系统提供完整的 API 服务支持。
+一个基于 FastAPI 框架构建企业级后端架构解决方案，为前端 Vue3 管理系统提供完整的 API 服务支持。
 
 ## 🚀 项目特性
 
