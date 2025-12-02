@@ -291,6 +291,9 @@
           <el-descriptions-item label="登录地点" :span="4">
             {{ formData.login_location }}
           </el-descriptions-item>
+          <el-descriptions-item label="描述" :span="8">
+            {{ formData.description }}
+          </el-descriptions-item>
           <el-descriptions-item label="创建人" :span="4">
             {{ formData.created_by?.name }}
           </el-descriptions-item>
@@ -302,9 +305,6 @@
           </el-descriptions-item>
           <el-descriptions-item label="更新时间" :span="4">
             {{ formData.updated_time }}
-          </el-descriptions-item>
-          <el-descriptions-item label="描述" :span="8">
-            {{ formData.description }}
           </el-descriptions-item>
         </el-descriptions>
       </template>

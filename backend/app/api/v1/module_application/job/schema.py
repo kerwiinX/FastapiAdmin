@@ -78,8 +78,8 @@ class JobLogCreateSchema(BaseModel):
     exception_info: str | None = Field(default=None, description='异常信息')
     status: str = Field(default='0', description='任务状态:正常,失败')
     description: str | None = Field(default=None, max_length=255, description='描述')
-    create_time: DateTimeStr | None = Field(default=None, description='创建时间')
-    update_time: DateTimeStr | None = Field(default=None, description='更新时间')
+    created_time: DateTimeStr | None = Field(default=None, description='创建时间')
+    updated_time: DateTimeStr | None = Field(default=None, description='更新时间')
 
 
 class JobLogUpdateSchema(JobLogCreateSchema):

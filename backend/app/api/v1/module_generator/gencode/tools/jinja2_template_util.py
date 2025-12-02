@@ -1,4 +1,4 @@
-# -*- coding:utf-8 -*-
+# -*- coding: utf-8 -*-
 
 from datetime import datetime
 from jinja2.environment import Environment
@@ -137,6 +137,7 @@ class Jinja2TemplateUtil:
             'python/crud.py.j2',
             'python/schema.py.j2',
             'python/model.py.j2',
+            'python/__init__.py.j2',
             'sql/sql.sql.j2',
             'ts/api.ts.j2',
             'vue/index.vue.j2',
@@ -171,8 +172,9 @@ class Jinja2TemplateUtil:
             'controller.py.j2': f'{cls.BACKEND_PROJECT_PATH}/app/api/v1/{module_name}/{business_name}/controller.py',
             'service.py.j2': f'{cls.BACKEND_PROJECT_PATH}/app/api/v1/{module_name}/{business_name}/service.py',
             'crud.py.j2': f'{cls.BACKEND_PROJECT_PATH}/app/api/v1/{module_name}/{business_name}/crud.py',
-            'model.py.j2': f'{cls.BACKEND_PROJECT_PATH}/app/api/v1/{module_name}/{business_name}/model.py',
             'schema.py.j2': f'{cls.BACKEND_PROJECT_PATH}/app/api/v1/{module_name}/{business_name}/schema.py',
+            'model.py.j2': f'{cls.BACKEND_PROJECT_PATH}/app/api/v1/{module_name}/{business_name}/model.py',
+            '__init__.py.j2': f'{cls.BACKEND_PROJECT_PATH}/app/api/v1/{module_name}/{business_name}/__init__.py',
             'sql.sql.j2': f'{cls.BACKEND_PROJECT_PATH}/sql/menu/{module_name}/{business_name}.sql',
             'api.ts.j2': f'{cls.FRONTEND_PROJECT_PATH}/src/api/{module_name}/{business_name}.ts',
             'index.vue.j2': f'{cls.FRONTEND_PROJECT_PATH}/src/views/{module_name}/{business_name}/index.vue'

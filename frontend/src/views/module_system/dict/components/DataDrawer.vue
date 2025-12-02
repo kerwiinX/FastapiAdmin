@@ -158,7 +158,7 @@
         <el-table-column label="状态" prop="status" min-width="100" show-overflow-tooltip>
           <template #default="scope">
             <el-tag :type="scope.row.status === '0' ? 'success' : 'danger'">
-              {{ scope.row.status ? "启用" : "停用" }}
+              {{ scope.row.status === '0' ? "启用" : "停用" }}
             </el-tag>
           </template>
         </el-table-column>
@@ -349,8 +349,8 @@
             <el-switch
               v-model="formData.status"
               inline-prompt
-              :active-value="true"
-              :inactive-value="false"
+              :active-value="'0'"
+              :inactive-value="'1'"
             />
           </el-form-item>
 
@@ -397,6 +397,10 @@ const props = defineProps({
   },
   dictLabel: {
     type: String,
+    required: true,
+  },
+  dictTypeId: {
+    type: Number,
     required: true,
   },
 });
@@ -454,6 +458,7 @@ const formData = reactive<DictDataForm>({
   is_default: false,
   status: '0',
   description: "",
+  dict_type_id: undefined,
 });
 
 // 弹窗状态
@@ -536,6 +541,7 @@ const initialFormData: DictDataForm = {
   is_default: false,
   status: '0',
   description: "",
+  dict_type_id: props.dictTypeId,
 };
 
 // 重置表单
@@ -692,8 +698,6 @@ const curdContentConfig = {
   cols: exportColumns as any,
   exportsAction: async (params: any) => {
     const query: any = { ...params };
-    if (typeof query.status === "string") query.status = query.status === "true";
-    // dict_type 已在查询表单中设置为 props.dictType
     query.page_no = 1;
     query.page_size = 1000;
     const all: any[] = [];

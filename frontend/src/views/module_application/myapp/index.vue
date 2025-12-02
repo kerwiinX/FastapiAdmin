@@ -99,7 +99,6 @@
           <div
             v-for="app in applicationList"
             :key="app.id"
-            class="app-grid-item"
             @mouseenter="app.id && (hoveredCard = app.id)"
             @mouseleave="hoveredCard = null"
             @click="app.status && app.id && openAppInternal(app)"
@@ -534,6 +533,7 @@ onMounted(() => {
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 16px;
   padding: 0 2px;
+  justify-items: stretch;
 
   @media (max-width: 768px) {
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -546,16 +546,12 @@ onMounted(() => {
   }
 }
 
-// 卡片项
-.app-grid-item {
-  height: fit-content;
-}
-
 // 卡片样式
 .app-card {
   display: flex;
   flex-direction: column;
   height: 100%;
+  // min-height: 180px;
   overflow: hidden;
   cursor: pointer;
   background: linear-gradient(145deg, var(--el-bg-color) 0%, var(--el-bg-color-page) 100%);
@@ -694,7 +690,6 @@ onMounted(() => {
 
 .app-description {
   display: -webkit-box;
-  min-height: 2.8em;
   margin: 0;
   overflow: hidden;
   text-overflow: ellipsis;

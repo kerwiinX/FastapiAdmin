@@ -39,7 +39,7 @@ async def lifespan(app: FastAPI) -> AsyncGenerator[Any, Any]:
     """
     try:
         await InitializeData().init_db()
-        log.info(f"✅ 数据库初始化完成 ({settings.DATABASE_TYPE})")
+        log.info(f"✅ {settings.DATABASE_TYPE}数据库初始化完成")
         await import_modules_async(modules=settings.EVENT_LIST, desc="全局事件", app=app, status=True)
         log.info("✅ 全局事件模块加载完成")
         await ParamsService().init_config_service(redis=app.state.redis)

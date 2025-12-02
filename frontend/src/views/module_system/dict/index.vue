@@ -265,7 +265,7 @@
               size="small"
               link
               icon="document"
-              @click="handleDictDataDrawer(scope.row.dict_type, scope.row.dict_name)"
+              @click="handleDictDataDrawer(scope.row)"
             >
               字典
             </el-button>
@@ -396,6 +396,7 @@
       v-model="drawerVisible"
       :dict-type="currentDictType"
       :dict-label="currentDictLabel"
+      :dict-type-id="currentDictTypeId"
     />
     <ExportModal
       v-model="exportsDialogVisible"
@@ -511,6 +512,10 @@ const currentDictType = ref("");
 
 // 添加字典名称变量
 const currentDictLabel = ref("");
+
+// 添加字典类型ID变量
+const currentDictTypeId = ref(1);
+
 
 // 加载表格数据
 async function loadingData() {
@@ -680,9 +685,10 @@ async function handleMoreClick(status: string) {
   }
 }
 
-function handleDictDataDrawer(dictType: string, dictLabel: string) {
-  currentDictType.value = dictType;
-  currentDictLabel.value = dictLabel;
+function handleDictDataDrawer(dictType: DictTable) {
+  currentDictType.value = dictType.dict_type || "";
+  currentDictLabel.value = dictType.dict_name || "";
+  currentDictTypeId.value = dictType.id || 0;
   drawerVisible.value = true;
 }
 

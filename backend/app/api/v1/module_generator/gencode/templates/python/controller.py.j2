@@ -1,4 +1,4 @@
-# -*- coding:utf-8 -*-
+# -*- coding: utf-8 -*-
 
 from fastapi import APIRouter, Depends, UploadFile, Body, Path, Query
 from fastapi.responses import StreamingResponse, JSONResponse
@@ -12,8 +12,7 @@ from app.core.logger import log
 from app.core.base_schema import BatchSetAvailable
 
 from .service import {{ class_name }}Service
-from .schema import {{ class_name }}CreateSchema, {{ class_name }}UpdateSchema
-from .param import {{ class_name }}QueryParam
+from .schema import {{ class_name }}CreateSchema, {{ class_name }}UpdateSchema, {{ class_name }}QueryParam
 
 {{ class_name }}Router = APIRouter(prefix='/{{ business_name }}', tags=["{{ function_name }}模块"]) 
 

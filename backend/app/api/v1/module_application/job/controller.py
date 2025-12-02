@@ -257,7 +257,7 @@ async def get_job_log_list_controller(
     返回:
     - JSONResponse: 查询定时任务日志列表的JSON响应
     """
-    order_by = [{"create_time": "desc"}]
+    order_by = [{"created_time": "desc"}]
     result_dict_list = await JobLogService.get_job_log_list_service(auth=auth, search=search, order_by=order_by)
     result_dict = await PaginationService.paginate(data_list=result_dict_list, page_no=page.page_no, page_size=page.page_size)
     log.info(f"查询定时任务日志列表成功")

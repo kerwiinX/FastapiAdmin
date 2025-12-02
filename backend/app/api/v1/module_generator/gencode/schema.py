@@ -1,4 +1,4 @@
-# -*- coding:utf-8 -*-
+# -*- coding: utf-8 -*-
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 from fastapi import Query

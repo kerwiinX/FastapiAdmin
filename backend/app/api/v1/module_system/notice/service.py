@@ -40,11 +40,7 @@ class NoticeService:
         返回:
         - list[dict]: 可用公告详情字典列表。
         """
-        search = {
-            'status': True,
-        }
-        
-        notice_obj_list = await NoticeCRUD(auth).get_list_crud(search=search)
+        notice_obj_list = await NoticeCRUD(auth).get_list_crud(search={'status': '0',})
         return [NoticeOutSchema.model_validate(notice_obj).model_dump() for notice_obj in notice_obj_list]
 
     @classmethod

@@ -39,9 +39,7 @@ CREATE TABLE public.app_ai_mcp (
     created_time timestamp without time zone NOT NULL,
     updated_time timestamp without time zone NOT NULL,
     created_id integer,
-    updated_id integer,
-    tenant_id integer NOT NULL,
-    customer_id integer
+    updated_id integer
 );
 
 
@@ -153,20 +151,6 @@ COMMENT ON COLUMN public.app_ai_mcp.updated_id IS '更新人ID';
 
 
 --
--- Name: COLUMN app_ai_mcp.tenant_id; Type: COMMENT; Schema: public; Owner: tao
---
-
-COMMENT ON COLUMN public.app_ai_mcp.tenant_id IS '所属租户ID';
-
-
---
--- Name: COLUMN app_ai_mcp.customer_id; Type: COMMENT; Schema: public; Owner: tao
---
-
-COMMENT ON COLUMN public.app_ai_mcp.customer_id IS '所属客户ID(NULL表示租户级数据,>0表示客户级数据)';
-
-
---
 -- Name: app_ai_mcp_id_seq; Type: SEQUENCE; Schema: public; Owner: tao
 --
 
@@ -212,9 +196,7 @@ CREATE TABLE public.app_job (
     created_time timestamp without time zone NOT NULL,
     updated_time timestamp without time zone NOT NULL,
     created_id integer,
-    updated_id integer,
-    tenant_id integer NOT NULL,
-    customer_id integer
+    updated_id integer
 );
 
 
@@ -368,20 +350,6 @@ COMMENT ON COLUMN public.app_job.updated_id IS '更新人ID';
 
 
 --
--- Name: COLUMN app_job.tenant_id; Type: COMMENT; Schema: public; Owner: tao
---
-
-COMMENT ON COLUMN public.app_job.tenant_id IS '所属租户ID';
-
-
---
--- Name: COLUMN app_job.customer_id; Type: COMMENT; Schema: public; Owner: tao
---
-
-COMMENT ON COLUMN public.app_job.customer_id IS '所属客户ID(NULL表示租户级数据,>0表示客户级数据)';
-
-
---
 -- Name: app_job_id_seq; Type: SEQUENCE; Schema: public; Owner: tao
 --
 
@@ -423,8 +391,7 @@ CREATE TABLE public.app_job_log (
     status character varying(10) NOT NULL,
     description text,
     created_time timestamp without time zone NOT NULL,
-    updated_time timestamp without time zone NOT NULL,
-    tenant_id integer NOT NULL
+    updated_time timestamp without time zone NOT NULL
 );
 
 
@@ -550,13 +517,6 @@ COMMENT ON COLUMN public.app_job_log.updated_time IS '更新时间';
 
 
 --
--- Name: COLUMN app_job_log.tenant_id; Type: COMMENT; Schema: public; Owner: tao
---
-
-COMMENT ON COLUMN public.app_job_log.tenant_id IS '所属租户ID';
-
-
---
 -- Name: app_job_log_id_seq; Type: SEQUENCE; Schema: public; Owner: tao
 --
 
@@ -593,9 +553,7 @@ CREATE TABLE public.app_myapp (
     created_time timestamp without time zone NOT NULL,
     updated_time timestamp without time zone NOT NULL,
     created_id integer,
-    updated_id integer,
-    tenant_id integer NOT NULL,
-    customer_id integer
+    updated_id integer
 );
 
 
@@ -686,20 +644,6 @@ COMMENT ON COLUMN public.app_myapp.updated_id IS '更新人ID';
 
 
 --
--- Name: COLUMN app_myapp.tenant_id; Type: COMMENT; Schema: public; Owner: tao
---
-
-COMMENT ON COLUMN public.app_myapp.tenant_id IS '所属租户ID';
-
-
---
--- Name: COLUMN app_myapp.customer_id; Type: COMMENT; Schema: public; Owner: tao
---
-
-COMMENT ON COLUMN public.app_myapp.customer_id IS '所属客户ID(NULL表示租户级数据,>0表示客户级数据)';
-
-
---
 -- Name: app_myapp_id_seq; Type: SEQUENCE; Schema: public; Owner: tao
 --
 
@@ -747,9 +691,7 @@ CREATE TABLE public.gen_demo (
     created_time timestamp without time zone NOT NULL,
     updated_time timestamp without time zone NOT NULL,
     created_id integer,
-    updated_id integer,
-    tenant_id integer NOT NULL,
-    customer_id integer
+    updated_id integer
 );
 
 
@@ -826,20 +768,6 @@ COMMENT ON COLUMN public.gen_demo.updated_id IS '更新人ID';
 
 
 --
--- Name: COLUMN gen_demo.tenant_id; Type: COMMENT; Schema: public; Owner: tao
---
-
-COMMENT ON COLUMN public.gen_demo.tenant_id IS '所属租户ID';
-
-
---
--- Name: COLUMN gen_demo.customer_id; Type: COMMENT; Schema: public; Owner: tao
---
-
-COMMENT ON COLUMN public.gen_demo.customer_id IS '所属客户ID(NULL表示租户级数据,>0表示客户级数据)';
-
-
---
 -- Name: gen_demo_id_seq; Type: SEQUENCE; Schema: public; Owner: tao
 --
 
@@ -881,7 +809,9 @@ CREATE TABLE public.gen_table (
     status character varying(10) NOT NULL,
     description text,
     created_time timestamp without time zone NOT NULL,
-    updated_time timestamp without time zone NOT NULL
+    updated_time timestamp without time zone NOT NULL,
+    created_id integer,
+    updated_id integer
 );
 
 
@@ -1007,6 +937,20 @@ COMMENT ON COLUMN public.gen_table.updated_time IS '更新时间';
 
 
 --
+-- Name: COLUMN gen_table.created_id; Type: COMMENT; Schema: public; Owner: tao
+--
+
+COMMENT ON COLUMN public.gen_table.created_id IS '创建人ID';
+
+
+--
+-- Name: COLUMN gen_table.updated_id; Type: COMMENT; Schema: public; Owner: tao
+--
+
+COMMENT ON COLUMN public.gen_table.updated_id IS '更新人ID';
+
+
+--
 -- Name: gen_table_column; Type: TABLE; Schema: public; Owner: tao
 --
 
@@ -1036,7 +980,9 @@ CREATE TABLE public.gen_table_column (
     status character varying(10) NOT NULL,
     description text,
     created_time timestamp without time zone NOT NULL,
-    updated_time timestamp without time zone NOT NULL
+    updated_time timestamp without time zone NOT NULL,
+    created_id integer,
+    updated_id integer
 );
 
 
@@ -1232,6 +1178,20 @@ COMMENT ON COLUMN public.gen_table_column.updated_time IS '更新时间';
 
 
 --
+-- Name: COLUMN gen_table_column.created_id; Type: COMMENT; Schema: public; Owner: tao
+--
+
+COMMENT ON COLUMN public.gen_table_column.created_id IS '创建人ID';
+
+
+--
+-- Name: COLUMN gen_table_column.updated_id; Type: COMMENT; Schema: public; Owner: tao
+--
+
+COMMENT ON COLUMN public.gen_table_column.updated_id IS '更新人ID';
+
+
+--
 -- Name: gen_table_column_id_seq; Type: SEQUENCE; Schema: public; Owner: tao
 --
 
@@ -1276,133 +1236,6 @@ ALTER SEQUENCE public.gen_table_id_seq OWNED BY public.gen_table.id;
 
 
 --
--- Name: sys_customer; Type: TABLE; Schema: public; Owner: tao
---
-
-CREATE TABLE public.sys_customer (
-    name character varying(64) NOT NULL,
-    code character varying(20) NOT NULL,
-    id integer NOT NULL,
-    uuid character varying(64) NOT NULL,
-    status character varying(10) NOT NULL,
-    description text,
-    created_time timestamp without time zone NOT NULL,
-    updated_time timestamp without time zone NOT NULL,
-    created_id integer,
-    updated_id integer,
-    tenant_id integer NOT NULL
-);
-
-
-ALTER TABLE public.sys_customer OWNER TO tao;
-
---
--- Name: TABLE sys_customer; Type: COMMENT; Schema: public; Owner: tao
---
-
-COMMENT ON TABLE public.sys_customer IS '客户表';
-
-
---
--- Name: COLUMN sys_customer.name; Type: COMMENT; Schema: public; Owner: tao
---
-
-COMMENT ON COLUMN public.sys_customer.name IS '客户名称';
-
-
---
--- Name: COLUMN sys_customer.code; Type: COMMENT; Schema: public; Owner: tao
---
-
-COMMENT ON COLUMN public.sys_customer.code IS '客户编码';
-
-
---
--- Name: COLUMN sys_customer.id; Type: COMMENT; Schema: public; Owner: tao
---
-
-COMMENT ON COLUMN public.sys_customer.id IS '主键ID';
-
-
---
--- Name: COLUMN sys_customer.uuid; Type: COMMENT; Schema: public; Owner: tao
---
-
-COMMENT ON COLUMN public.sys_customer.uuid IS 'UUID全局唯一标识';
-
-
---
--- Name: COLUMN sys_customer.status; Type: COMMENT; Schema: public; Owner: tao
---
-
-COMMENT ON COLUMN public.sys_customer.status IS '是否启用(0:启用 1:禁用)';
-
-
---
--- Name: COLUMN sys_customer.description; Type: COMMENT; Schema: public; Owner: tao
---
-
-COMMENT ON COLUMN public.sys_customer.description IS '备注/描述';
-
-
---
--- Name: COLUMN sys_customer.created_time; Type: COMMENT; Schema: public; Owner: tao
---
-
-COMMENT ON COLUMN public.sys_customer.created_time IS '创建时间';
-
-
---
--- Name: COLUMN sys_customer.updated_time; Type: COMMENT; Schema: public; Owner: tao
---
-
-COMMENT ON COLUMN public.sys_customer.updated_time IS '更新时间';
-
-
---
--- Name: COLUMN sys_customer.created_id; Type: COMMENT; Schema: public; Owner: tao
---
-
-COMMENT ON COLUMN public.sys_customer.created_id IS '创建人ID';
-
-
---
--- Name: COLUMN sys_customer.updated_id; Type: COMMENT; Schema: public; Owner: tao
---
-
-COMMENT ON COLUMN public.sys_customer.updated_id IS '更新人ID';
-
-
---
--- Name: COLUMN sys_customer.tenant_id; Type: COMMENT; Schema: public; Owner: tao
---
-
-COMMENT ON COLUMN public.sys_customer.tenant_id IS '所属租户ID';
-
-
---
--- Name: sys_customer_id_seq; Type: SEQUENCE; Schema: public; Owner: tao
---
-
-CREATE SEQUENCE public.sys_customer_id_seq
-    AS integer
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
-ALTER SEQUENCE public.sys_customer_id_seq OWNER TO tao;
-
---
--- Name: sys_customer_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: tao
---
-
-ALTER SEQUENCE public.sys_customer_id_seq OWNED BY public.sys_customer.id;
-
-
---
 -- Name: sys_dept; Type: TABLE; Schema: public; Owner: tao
 --
 
@@ -1419,8 +1252,7 @@ CREATE TABLE public.sys_dept (
     status character varying(10) NOT NULL,
     description text,
     created_time timestamp without time zone NOT NULL,
-    updated_time timestamp without time zone NOT NULL,
-    tenant_id integer NOT NULL
+    updated_time timestamp without time zone NOT NULL
 );
 
 
@@ -1522,13 +1354,6 @@ COMMENT ON COLUMN public.sys_dept.created_time IS '创建时间';
 --
 
 COMMENT ON COLUMN public.sys_dept.updated_time IS '更新时间';
-
-
---
--- Name: COLUMN sys_dept.tenant_id; Type: COMMENT; Schema: public; Owner: tao
---
-
-COMMENT ON COLUMN public.sys_dept.tenant_id IS '所属租户ID';
 
 
 --
@@ -1830,9 +1655,7 @@ CREATE TABLE public.sys_log (
     created_time timestamp without time zone NOT NULL,
     updated_time timestamp without time zone NOT NULL,
     created_id integer,
-    updated_id integer,
-    tenant_id integer NOT NULL,
-    customer_id integer
+    updated_id integer
 );
 
 
@@ -1976,20 +1799,6 @@ COMMENT ON COLUMN public.sys_log.created_id IS '创建人ID';
 --
 
 COMMENT ON COLUMN public.sys_log.updated_id IS '更新人ID';
-
-
---
--- Name: COLUMN sys_log.tenant_id; Type: COMMENT; Schema: public; Owner: tao
---
-
-COMMENT ON COLUMN public.sys_log.tenant_id IS '所属租户ID';
-
-
---
--- Name: COLUMN sys_log.customer_id; Type: COMMENT; Schema: public; Owner: tao
---
-
-COMMENT ON COLUMN public.sys_log.customer_id IS '所属客户ID(NULL表示租户级数据,>0表示客户级数据)';
 
 
 --
@@ -2244,9 +2053,7 @@ CREATE TABLE public.sys_notice (
     created_time timestamp without time zone NOT NULL,
     updated_time timestamp without time zone NOT NULL,
     created_id integer,
-    updated_id integer,
-    tenant_id integer NOT NULL,
-    customer_id integer
+    updated_id integer
 );
 
 
@@ -2334,20 +2141,6 @@ COMMENT ON COLUMN public.sys_notice.created_id IS '创建人ID';
 --
 
 COMMENT ON COLUMN public.sys_notice.updated_id IS '更新人ID';
-
-
---
--- Name: COLUMN sys_notice.tenant_id; Type: COMMENT; Schema: public; Owner: tao
---
-
-COMMENT ON COLUMN public.sys_notice.tenant_id IS '所属租户ID';
-
-
---
--- Name: COLUMN sys_notice.customer_id; Type: COMMENT; Schema: public; Owner: tao
---
-
-COMMENT ON COLUMN public.sys_notice.customer_id IS '所属客户ID(NULL表示租户级数据,>0表示客户级数据)';
 
 
 --
@@ -2505,8 +2298,7 @@ CREATE TABLE public.sys_position (
     created_time timestamp without time zone NOT NULL,
     updated_time timestamp without time zone NOT NULL,
     created_id integer,
-    updated_id integer,
-    tenant_id integer NOT NULL
+    updated_id integer
 );
 
 
@@ -2590,13 +2382,6 @@ COMMENT ON COLUMN public.sys_position.updated_id IS '更新人ID';
 
 
 --
--- Name: COLUMN sys_position.tenant_id; Type: COMMENT; Schema: public; Owner: tao
---
-
-COMMENT ON COLUMN public.sys_position.tenant_id IS '所属租户ID';
-
-
---
 -- Name: sys_position_id_seq; Type: SEQUENCE; Schema: public; Owner: tao
 --
 
@@ -2626,7 +2411,7 @@ CREATE TABLE public.sys_role (
     name character varying(40) NOT NULL,
     code character varying(20),
     "order" integer NOT NULL,
-    data_scope character varying(10),
+    data_scope integer NOT NULL,
     id integer NOT NULL,
     uuid character varying(64) NOT NULL,
     status character varying(10) NOT NULL,
@@ -2634,8 +2419,7 @@ CREATE TABLE public.sys_role (
     created_time timestamp without time zone NOT NULL,
     updated_time timestamp without time zone NOT NULL,
     created_id integer,
-    updated_id integer,
-    tenant_id integer NOT NULL
+    updated_id integer
 );
 
 
@@ -2733,13 +2517,6 @@ COMMENT ON COLUMN public.sys_role.updated_id IS '更新人ID';
 
 
 --
--- Name: COLUMN sys_role.tenant_id; Type: COMMENT; Schema: public; Owner: tao
---
-
-COMMENT ON COLUMN public.sys_role.tenant_id IS '所属租户ID';
-
-
---
 -- Name: sys_role_depts; Type: TABLE; Schema: public; Owner: tao
 --
 
@@ -2828,125 +2605,6 @@ COMMENT ON COLUMN public.sys_role_menus.menu_id IS '菜单ID';
 
 
 --
--- Name: sys_tenant; Type: TABLE; Schema: public; Owner: tao
---
-
-CREATE TABLE public.sys_tenant (
-    name character varying(100) NOT NULL,
-    code character varying(100) NOT NULL,
-    start_time timestamp without time zone,
-    end_time timestamp without time zone,
-    id integer NOT NULL,
-    uuid character varying(64) NOT NULL,
-    status character varying(10) NOT NULL,
-    description text,
-    created_time timestamp without time zone NOT NULL,
-    updated_time timestamp without time zone NOT NULL
-);
-
-
-ALTER TABLE public.sys_tenant OWNER TO tao;
-
---
--- Name: TABLE sys_tenant; Type: COMMENT; Schema: public; Owner: tao
---
-
-COMMENT ON TABLE public.sys_tenant IS '租户表';
-
-
---
--- Name: COLUMN sys_tenant.name; Type: COMMENT; Schema: public; Owner: tao
---
-
-COMMENT ON COLUMN public.sys_tenant.name IS '租户名称';
-
-
---
--- Name: COLUMN sys_tenant.code; Type: COMMENT; Schema: public; Owner: tao
---
-
-COMMENT ON COLUMN public.sys_tenant.code IS '租户编码';
-
-
---
--- Name: COLUMN sys_tenant.start_time; Type: COMMENT; Schema: public; Owner: tao
---
-
-COMMENT ON COLUMN public.sys_tenant.start_time IS '开始时间';
-
-
---
--- Name: COLUMN sys_tenant.end_time; Type: COMMENT; Schema: public; Owner: tao
---
-
-COMMENT ON COLUMN public.sys_tenant.end_time IS '结束时间';
-
-
---
--- Name: COLUMN sys_tenant.id; Type: COMMENT; Schema: public; Owner: tao
---
-
-COMMENT ON COLUMN public.sys_tenant.id IS '主键ID';
-
-
---
--- Name: COLUMN sys_tenant.uuid; Type: COMMENT; Schema: public; Owner: tao
---
-
-COMMENT ON COLUMN public.sys_tenant.uuid IS 'UUID全局唯一标识';
-
-
---
--- Name: COLUMN sys_tenant.status; Type: COMMENT; Schema: public; Owner: tao
---
-
-COMMENT ON COLUMN public.sys_tenant.status IS '是否启用(0:启用 1:禁用)';
-
-
---
--- Name: COLUMN sys_tenant.description; Type: COMMENT; Schema: public; Owner: tao
---
-
-COMMENT ON COLUMN public.sys_tenant.description IS '备注/描述';
-
-
---
--- Name: COLUMN sys_tenant.created_time; Type: COMMENT; Schema: public; Owner: tao
---
-
-COMMENT ON COLUMN public.sys_tenant.created_time IS '创建时间';
-
-
---
--- Name: COLUMN sys_tenant.updated_time; Type: COMMENT; Schema: public; Owner: tao
---
-
-COMMENT ON COLUMN public.sys_tenant.updated_time IS '更新时间';
-
-
---
--- Name: sys_tenant_id_seq; Type: SEQUENCE; Schema: public; Owner: tao
---
-
-CREATE SEQUENCE public.sys_tenant_id_seq
-    AS integer
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
-ALTER SEQUENCE public.sys_tenant_id_seq OWNER TO tao;
-
---
--- Name: sys_tenant_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: tao
---
-
-ALTER SEQUENCE public.sys_tenant_id_seq OWNED BY public.sys_tenant.id;
-
-
---
 -- Name: sys_user; Type: TABLE; Schema: public; Owner: tao
 --
 
@@ -2964,8 +2622,6 @@ CREATE TABLE public.sys_user (
     github_login character varying(32),
     wx_login character varying(32),
     qq_login character varying(32),
-    user_type character varying(32) NOT NULL,
-    salt character varying(255),
     dept_id integer,
     id integer NOT NULL,
     uuid character varying(64) NOT NULL,
@@ -2974,9 +2630,7 @@ CREATE TABLE public.sys_user (
     created_time timestamp without time zone NOT NULL,
     updated_time timestamp without time zone NOT NULL,
     created_id integer,
-    updated_id integer,
-    tenant_id integer NOT NULL,
-    customer_id integer
+    updated_id integer
 );
 
 
@@ -3081,20 +2735,6 @@ COMMENT ON COLUMN public.sys_user.qq_login IS 'QQ登录';
 
 
 --
--- Name: COLUMN sys_user.user_type; Type: COMMENT; Schema: public; Owner: tao
---
-
-COMMENT ON COLUMN public.sys_user.user_type IS '用户类型(0:系统用户 1:租户用户 2:客户用户)';
-
-
---
--- Name: COLUMN sys_user.salt; Type: COMMENT; Schema: public; Owner: tao
---
-
-COMMENT ON COLUMN public.sys_user.salt IS '加密盐';
-
-
---
 -- Name: COLUMN sys_user.dept_id; Type: COMMENT; Schema: public; Owner: tao
 --
 
@@ -3155,20 +2795,6 @@ COMMENT ON COLUMN public.sys_user.created_id IS '创建人ID';
 --
 
 COMMENT ON COLUMN public.sys_user.updated_id IS '更新人ID';
-
-
---
--- Name: COLUMN sys_user.tenant_id; Type: COMMENT; Schema: public; Owner: tao
---
-
-COMMENT ON COLUMN public.sys_user.tenant_id IS '所属租户ID';
-
-
---
--- Name: COLUMN sys_user.customer_id; Type: COMMENT; Schema: public; Owner: tao
---
-
-COMMENT ON COLUMN public.sys_user.customer_id IS '所属客户ID(NULL表示租户级数据,>0表示客户级数据)';
 
 
 --
@@ -3309,13 +2935,6 @@ ALTER TABLE ONLY public.gen_table_column ALTER COLUMN id SET DEFAULT nextval('pu
 
 
 --
--- Name: sys_customer id; Type: DEFAULT; Schema: public; Owner: tao
---
-
-ALTER TABLE ONLY public.sys_customer ALTER COLUMN id SET DEFAULT nextval('public.sys_customer_id_seq'::regclass);
-
-
---
 -- Name: sys_dept id; Type: DEFAULT; Schema: public; Owner: tao
 --
 
@@ -3379,13 +2998,6 @@ ALTER TABLE ONLY public.sys_role ALTER COLUMN id SET DEFAULT nextval('public.sys
 
 
 --
--- Name: sys_tenant id; Type: DEFAULT; Schema: public; Owner: tao
---
-
-ALTER TABLE ONLY public.sys_tenant ALTER COLUMN id SET DEFAULT nextval('public.sys_tenant_id_seq'::regclass);
-
-
---
 -- Name: sys_user id; Type: DEFAULT; Schema: public; Owner: tao
 --
 
@@ -3396,7 +3008,7 @@ ALTER TABLE ONLY public.sys_user ALTER COLUMN id SET DEFAULT nextval('public.sys
 -- Data for Name: app_ai_mcp; Type: TABLE DATA; Schema: public; Owner: tao
 --
 
-COPY public.app_ai_mcp (name, type, url, command, args, env, id, uuid, status, description, created_time, updated_time, created_id, updated_id, tenant_id, customer_id) FROM stdin;
+COPY public.app_ai_mcp (name, type, url, command, args, env, id, uuid, status, description, created_time, updated_time, created_id, updated_id) FROM stdin;
 \.
 
 
@@ -3404,7 +3016,7 @@ COPY public.app_ai_mcp (name, type, url, command, args, env, id, uuid, status, d
 -- Data for Name: app_job; Type: TABLE DATA; Schema: public; Owner: tao
 --
 
-COPY public.app_job (name, jobstore, executor, trigger, trigger_args, func, args, kwargs, "coalesce", max_instances, start_date, end_date, id, uuid, status, description, created_time, updated_time, created_id, updated_id, tenant_id, customer_id) FROM stdin;
+COPY public.app_job (name, jobstore, executor, trigger, trigger_args, func, args, kwargs, "coalesce", max_instances, start_date, end_date, id, uuid, status, description, created_time, updated_time, created_id, updated_id) FROM stdin;
 \.
 
 
@@ -3412,7 +3024,7 @@ COPY public.app_job (name, jobstore, executor, trigger, trigger_args, func, args
 -- Data for Name: app_job_log; Type: TABLE DATA; Schema: public; Owner: tao
 --
 
-COPY public.app_job_log (job_name, job_group, job_executor, invoke_target, job_args, job_kwargs, job_trigger, job_message, exception_info, job_id, id, uuid, status, description, created_time, updated_time, tenant_id) FROM stdin;
+COPY public.app_job_log (job_name, job_group, job_executor, invoke_target, job_args, job_kwargs, job_trigger, job_message, exception_info, job_id, id, uuid, status, description, created_time, updated_time) FROM stdin;
 \.
 
 
@@ -3420,7 +3032,7 @@ COPY public.app_job_log (job_name, job_group, job_executor, invoke_target, job_a
 -- Data for Name: app_myapp; Type: TABLE DATA; Schema: public; Owner: tao
 --
 
-COPY public.app_myapp (name, access_url, icon_url, id, uuid, status, description, created_time, updated_time, created_id, updated_id, tenant_id, customer_id) FROM stdin;
+COPY public.app_myapp (name, access_url, icon_url, id, uuid, status, description, created_time, updated_time, created_id, updated_id) FROM stdin;
 \.
 
 
@@ -3436,7 +3048,7 @@ COPY public.apscheduler_jobs (id, next_run_time, job_state) FROM stdin;
 -- Data for Name: gen_demo; Type: TABLE DATA; Schema: public; Owner: tao
 --
 
-COPY public.gen_demo (name, id, uuid, status, description, created_time, updated_time, created_id, updated_id, tenant_id, customer_id) FROM stdin;
+COPY public.gen_demo (name, id, uuid, status, description, created_time, updated_time, created_id, updated_id) FROM stdin;
 \.
 
 
@@ -3444,7 +3056,7 @@ COPY public.gen_demo (name, id, uuid, status, description, created_time, updated
 -- Data for Name: gen_table; Type: TABLE DATA; Schema: public; Owner: tao
 --
 
-COPY public.gen_table (table_name, table_comment, class_name, package_name, module_name, business_name, function_name, sub_table_name, sub_table_fk_name, parent_menu_id, id, uuid, status, description, created_time, updated_time) FROM stdin;
+COPY public.gen_table (table_name, table_comment, class_name, package_name, module_name, business_name, function_name, sub_table_name, sub_table_fk_name, parent_menu_id, id, uuid, status, description, created_time, updated_time, created_id, updated_id) FROM stdin;
 \.
 
 
@@ -3452,15 +3064,7 @@ COPY public.gen_table (table_name, table_comment, class_name, package_name, modu
 -- Data for Name: gen_table_column; Type: TABLE DATA; Schema: public; Owner: tao
 --
 
-COPY public.gen_table_column (column_name, column_comment, column_type, column_length, column_default, is_pk, is_increment, is_nullable, is_unique, python_type, python_field, is_insert, is_edit, is_list, is_query, query_type, html_type, dict_type, sort, table_id, id, uuid, status, description, created_time, updated_time) FROM stdin;
-\.
-
-
---
--- Data for Name: sys_customer; Type: TABLE DATA; Schema: public; Owner: tao
---
-
-COPY public.sys_customer (name, code, id, uuid, status, description, created_time, updated_time, created_id, updated_id, tenant_id) FROM stdin;
+COPY public.gen_table_column (column_name, column_comment, column_type, column_length, column_default, is_pk, is_increment, is_nullable, is_unique, python_type, python_field, is_insert, is_edit, is_list, is_query, query_type, html_type, dict_type, sort, table_id, id, uuid, status, description, created_time, updated_time, created_id, updated_id) FROM stdin;
 \.
 
 
@@ -3468,8 +3072,8 @@ COPY public.sys_customer (name, code, id, uuid, status, description, created_tim
 -- Data for Name: sys_dept; Type: TABLE DATA; Schema: public; Owner: tao
 --
 
-COPY public.sys_dept (name, "order", code, leader, phone, email, parent_id, id, uuid, status, description, created_time, updated_time, tenant_id) FROM stdin;
-集团总公司	1	GROUP	部门负责人	1582112620	deptadmin@example.com	\N	1	547f368b-ca8d-4119-9cd7-0d49621f0242	0	集团总公司	2025-11-29 14:16:23.96045	2025-11-29 14:16:23.960451	1
+COPY public.sys_dept (name, "order", code, leader, phone, email, parent_id, id, uuid, status, description, created_time, updated_time) FROM stdin;
+集团总公司	1	GROUP	部门负责人	1582112620	deptadmin@example.com	\N	1	82894ffa-6082-4975-83ab-ef795712b4e4	0	集团总公司	2025-12-02 00:10:58.135042	2025-12-02 00:10:58.135043
 \.
 
 
@@ -3478,40 +3082,40 @@ COPY public.sys_dept (name, "order", code, leader, phone, email, parent_id, id, 
 --
 
 COPY public.sys_dict_data (dict_sort, dict_label, dict_value, css_class, list_class, is_default, dict_type, dict_type_id, id, uuid, status, description, created_time, updated_time) FROM stdin;
-1	男	0	blue	\N	t	sys_user_sex	1	1	bb2cac0a-2e7b-48aa-81a8-cc9d81b4d9cf	0	性别男	2025-11-29 14:16:23.95647	2025-11-29 14:16:23.956472
-2	女	1	pink	\N	f	sys_user_sex	1	2	bc68aafd-2712-413e-9e17-7d033c1fc05d	0	性别女	2025-11-29 14:16:23.956476	2025-11-29 14:16:23.956476
-3	未知	2	red	\N	f	sys_user_sex	1	3	aa31e882-29de-4902-b444-5b851bd48e6f	0	性别未知	2025-11-29 14:16:23.956479	2025-11-29 14:16:23.95648
-1	是	1		primary	t	sys_yes_no	2	4	9bb23b68-420e-4818-ab31-3736b9b61b1f	0	是	2025-11-29 14:16:23.956482	2025-11-29 14:16:23.956483
-2	否	0		danger	f	sys_yes_no	2	5	79396648-d229-4425-b909-85b4cf427199	0	否	2025-11-29 14:16:23.956486	2025-11-29 14:16:23.956486
-1	启用	1		primary	f	sys_common_status	3	6	fe1f796a-c681-4ec9-a18d-5b28f304946c	0	启用状态	2025-11-29 14:16:23.956489	2025-11-29 14:16:23.956489
-2	停用	0		danger	f	sys_common_status	3	7	209d909c-725c-4809-9c06-24be2f04dbbe	0	停用状态	2025-11-29 14:16:23.956492	2025-11-29 14:16:23.956492
-1	通知	1	blue	warning	t	sys_notice_type	4	8	32b79759-782f-4c75-b4bb-eb3426218db0	0	通知	2025-11-29 14:16:23.956495	2025-11-29 14:16:23.956496
-2	公告	2	orange	success	f	sys_notice_type	4	9	468502af-87b4-41cb-a02c-2a4f8d5f3c76	0	公告	2025-11-29 14:16:23.956498	2025-11-29 14:16:23.956499
-99	其他	0		info	f	sys_oper_type	5	10	8d7ed026-379c-43a1-8e3f-a9f3484a1d38	0	其他操作	2025-11-29 14:16:23.956502	2025-11-29 14:16:23.956502
-1	新增	1		info	f	sys_oper_type	5	11	f4d25e17-526f-4a94-9be7-6162f2163fac	0	新增操作	2025-11-29 14:16:23.956505	2025-11-29 14:16:23.956505
-2	修改	2		info	f	sys_oper_type	5	12	bb023c55-0e09-4e8d-b98a-3f41dab2a049	0	修改操作	2025-11-29 14:16:23.956508	2025-11-29 14:16:23.956508
-3	删除	3		danger	f	sys_oper_type	5	13	0ac47345-e34b-41a1-af1d-4fe33bcba094	0	删除操作	2025-11-29 14:16:23.956511	2025-11-29 14:16:23.956512
-4	分配权限	4		primary	f	sys_oper_type	5	14	2476f805-91c4-4e69-bb32-3c485aa7ca19	0	授权操作	2025-11-29 14:16:23.956515	2025-11-29 14:16:23.956515
-5	导出	5		warning	f	sys_oper_type	5	15	dec5ee10-ba9e-4749-acd7-90568b2ea70c	0	导出操作	2025-11-29 14:16:23.956518	2025-11-29 14:16:23.956518
-6	导入	6		warning	f	sys_oper_type	5	16	1c3c270c-8c3d-48a9-87a5-4909669dca42	0	导入操作	2025-11-29 14:16:23.956521	2025-11-29 14:16:23.956521
-7	强退	7		danger	f	sys_oper_type	5	17	11a30dac-f37e-47ee-a442-0e08bc61ae9d	0	强退操作	2025-11-29 14:16:23.956524	2025-11-29 14:16:23.956524
-8	生成代码	8		warning	f	sys_oper_type	5	18	2b08fbe5-8038-49ef-9871-2ffc0b71dfa1	0	生成操作	2025-11-29 14:16:23.956527	2025-11-29 14:16:23.956528
-9	清空数据	9		danger	f	sys_oper_type	5	19	2042c8f0-e18d-464f-8285-712dd04d4c12	0	清空操作	2025-11-29 14:16:23.95653	2025-11-29 14:16:23.956531
-1	默认(Memory)	default		\N	t	sys_job_store	6	20	e21029a6-40e9-474a-b241-1dafe3754c06	0	默认分组	2025-11-29 14:16:23.956533	2025-11-29 14:16:23.956534
-2	数据库(Sqlalchemy)	sqlalchemy		\N	f	sys_job_store	6	21	56f8d26f-2732-40a6-b573-1d4616fff8e6	0	数据库分组	2025-11-29 14:16:23.956536	2025-11-29 14:16:23.956537
-3	数据库(Redis)	redis		\N	f	sys_job_store	6	22	51b1f7d2-3fc2-4843-8b26-525ca28a6bdd	0	reids分组	2025-11-29 14:16:23.95654	2025-11-29 14:16:23.95654
-1	线程池	default		\N	f	sys_job_executor	7	23	3cc7cd2c-9ce9-4685-9efb-3c43db9bf515	0	线程池	2025-11-29 14:16:23.956543	2025-11-29 14:16:23.956543
-2	进程池	processpool		\N	f	sys_job_executor	7	24	cfb4be13-ceb7-45cb-abc9-e478a5d63b14	0	进程池	2025-11-29 14:16:23.956546	2025-11-29 14:16:23.956546
-1	演示函数	scheduler_test.job		\N	t	sys_job_function	8	25	590c172c-b6d1-42c3-9309-88a47d9d79d3	0	演示函数	2025-11-29 14:16:23.956549	2025-11-29 14:16:23.956549
-1	指定日期(date)	date		\N	t	sys_job_trigger	9	26	63a97cda-167d-496e-a412-7c51d037b7ae	0	指定日期任务触发器	2025-11-29 14:16:23.956552	2025-11-29 14:16:23.956552
-2	间隔触发器(interval)	interval		\N	f	sys_job_trigger	9	27	d8342b88-8bf4-43f2-8ef7-7f306b2e0057	0	间隔触发器任务触发器	2025-11-29 14:16:23.956555	2025-11-29 14:16:23.956556
-3	cron表达式	cron		\N	f	sys_job_trigger	9	28	7d74993e-dd19-4657-86d1-a0ce6041c8b1	0	间隔触发器任务触发器	2025-11-29 14:16:23.956558	2025-11-29 14:16:23.956559
-1	默认(default)	default		\N	t	sys_list_class	10	29	7083c8f6-1136-48fb-9320-c6dd2301f9c2	0	默认表格回显样式	2025-11-29 14:16:23.956561	2025-11-29 14:16:23.956562
-2	主要(primary)	primary		\N	f	sys_list_class	10	30	fda04b01-310c-4171-ae33-331184a672e1	0	主要表格回显样式	2025-11-29 14:16:23.956564	2025-11-29 14:16:23.956565
-3	成功(success)	success		\N	f	sys_list_class	10	31	5f938778-7442-4221-8789-df529a42f988	0	成功表格回显样式	2025-11-29 14:16:23.956568	2025-11-29 14:16:23.956568
-4	信息(info)	info		\N	f	sys_list_class	10	32	54117d4c-d6d1-491e-b77b-d3b425fc4808	0	信息表格回显样式	2025-11-29 14:16:23.956571	2025-11-29 14:16:23.956571
-5	警告(warning)	warning		\N	f	sys_list_class	10	33	266ef543-a594-4ec7-8a0f-afa11872cf8e	0	警告表格回显样式	2025-11-29 14:16:23.956574	2025-11-29 14:16:23.956574
-6	危险(danger)	danger		\N	f	sys_list_class	10	34	3fa88eb3-5ebb-426e-bb63-15c3acd58ab3	0	危险表格回显样式	2025-11-29 14:16:23.956577	2025-11-29 14:16:23.956577
+1	男	0	blue	\N	t	sys_user_sex	1	1	30745954-996a-4772-825b-7038da4db3c9	0	性别男	2025-12-02 00:10:58.140313	2025-12-02 00:10:58.140315
+2	女	1	pink	\N	f	sys_user_sex	1	2	f91fa7d9-13e6-4514-b1a6-c579f7b764c1	0	性别女	2025-12-02 00:10:58.140319	2025-12-02 00:10:58.140319
+3	未知	2	red	\N	f	sys_user_sex	1	3	4a822233-e0fb-49d4-bf3a-4b0a9c7a3567	0	性别未知	2025-12-02 00:10:58.140323	2025-12-02 00:10:58.140323
+1	是	1		primary	t	sys_yes_no	2	4	d2895b18-2a57-43cb-9604-10d294666e69	0	是	2025-12-02 00:10:58.140326	2025-12-02 00:10:58.140327
+2	否	0		danger	f	sys_yes_no	2	5	bedb8436-a021-49df-b6e4-d5afc4c069ad	0	否	2025-12-02 00:10:58.14033	2025-12-02 00:10:58.14033
+1	启用	1		primary	f	sys_common_status	3	6	61a34ba9-7649-4d31-a80f-2d3bdd4f9559	0	启用状态	2025-12-02 00:10:58.140333	2025-12-02 00:10:58.140333
+2	停用	0		danger	f	sys_common_status	3	7	16681646-4ac1-42e5-8857-8804ac427b7f	0	停用状态	2025-12-02 00:10:58.140336	2025-12-02 00:10:58.140337
+1	通知	1	blue	warning	t	sys_notice_type	4	8	48846d1c-0b37-4587-9d93-47e2b9c8bf4d	0	通知	2025-12-02 00:10:58.14034	2025-12-02 00:10:58.14034
+2	公告	2	orange	success	f	sys_notice_type	4	9	679f33c6-8d5c-48a4-ac63-3f16243625b5	0	公告	2025-12-02 00:10:58.140343	2025-12-02 00:10:58.140343
+99	其他	0		info	f	sys_oper_type	5	10	80e914dd-89c3-4f72-832a-ff59f95f1dbd	0	其他操作	2025-12-02 00:10:58.140346	2025-12-02 00:10:58.140346
+1	新增	1		info	f	sys_oper_type	5	11	5cbb4c91-dacd-4df7-ac49-4be59e94d94d	0	新增操作	2025-12-02 00:10:58.140349	2025-12-02 00:10:58.14035
+2	修改	2		info	f	sys_oper_type	5	12	1a189028-5bc2-475b-8664-f68a6e4f7937	0	修改操作	2025-12-02 00:10:58.140353	2025-12-02 00:10:58.140353
+3	删除	3		danger	f	sys_oper_type	5	13	f538e7e9-74f6-4e4b-b25c-2cdcc6c5dddc	0	删除操作	2025-12-02 00:10:58.140356	2025-12-02 00:10:58.140357
+4	分配权限	4		primary	f	sys_oper_type	5	14	781d4734-81fb-4ef6-b7b7-4d272db96c4d	0	授权操作	2025-12-02 00:10:58.14036	2025-12-02 00:10:58.140361
+5	导出	5		warning	f	sys_oper_type	5	15	dc26bb3d-97d0-4f15-adff-cf252474b405	0	导出操作	2025-12-02 00:10:58.140365	2025-12-02 00:10:58.140365
+6	导入	6		warning	f	sys_oper_type	5	16	0726b2d8-2dc5-4be3-8f50-4cedd1765fe8	0	导入操作	2025-12-02 00:10:58.14037	2025-12-02 00:10:58.140371
+7	强退	7		danger	f	sys_oper_type	5	17	f8d2dd83-94fa-4624-9c79-7a76e09acba7	0	强退操作	2025-12-02 00:10:58.140375	2025-12-02 00:10:58.140376
+8	生成代码	8		warning	f	sys_oper_type	5	18	0f98b750-ed00-4ccd-bc70-b5189d6d7b0a	0	生成操作	2025-12-02 00:10:58.14038	2025-12-02 00:10:58.140381
+9	清空数据	9		danger	f	sys_oper_type	5	19	b52286b4-ee92-4d79-8bbd-68141852fbdc	0	清空操作	2025-12-02 00:10:58.140385	2025-12-02 00:10:58.140386
+1	默认(Memory)	default		\N	t	sys_job_store	6	20	4039c08e-279c-4e0a-bafd-f6c82482947d	0	默认分组	2025-12-02 00:10:58.14039	2025-12-02 00:10:58.140391
+2	数据库(Sqlalchemy)	sqlalchemy		\N	f	sys_job_store	6	21	96f82923-25ee-45f4-8d5c-ead5c6df6043	0	数据库分组	2025-12-02 00:10:58.140395	2025-12-02 00:10:58.140396
+3	数据库(Redis)	redis		\N	f	sys_job_store	6	22	1096fb48-5467-4914-b305-acb340271d12	0	reids分组	2025-12-02 00:10:58.1404	2025-12-02 00:10:58.140401
+1	线程池	default		\N	f	sys_job_executor	7	23	cb4037c8-31d8-4f64-808c-f25cd9f8776f	0	线程池	2025-12-02 00:10:58.140405	2025-12-02 00:10:58.140406
+2	进程池	processpool		\N	f	sys_job_executor	7	24	0b2f9536-f4b5-4049-b027-c56356be663e	0	进程池	2025-12-02 00:10:58.140411	2025-12-02 00:10:58.140411
+1	演示函数	scheduler_test.job		\N	t	sys_job_function	8	25	ed3e7bb4-4dd8-49f7-a7c0-c8626996f0a8	0	演示函数	2025-12-02 00:10:58.140416	2025-12-02 00:10:58.140416
+1	指定日期(date)	date		\N	t	sys_job_trigger	9	26	13aeab37-d198-4930-9e56-1ca3bd4c7dd0	0	指定日期任务触发器	2025-12-02 00:10:58.140421	2025-12-02 00:10:58.140421
+2	间隔触发器(interval)	interval		\N	f	sys_job_trigger	9	27	13f813b5-5bfe-4409-9068-74017d5813a9	0	间隔触发器任务触发器	2025-12-02 00:10:58.140426	2025-12-02 00:10:58.140427
+3	cron表达式	cron		\N	f	sys_job_trigger	9	28	20ad9a1a-086b-4603-8c36-58d9f06e7531	0	间隔触发器任务触发器	2025-12-02 00:10:58.140431	2025-12-02 00:10:58.140431
+1	默认(default)	default		\N	t	sys_list_class	10	29	1b5f0661-1a06-4ebc-8c5c-325532cc8d19	0	默认表格回显样式	2025-12-02 00:10:58.140434	2025-12-02 00:10:58.140435
+2	主要(primary)	primary		\N	f	sys_list_class	10	30	e6de73f1-0808-4fbe-bcee-61e416b55bf2	0	主要表格回显样式	2025-12-02 00:10:58.140438	2025-12-02 00:10:58.140438
+3	成功(success)	success		\N	f	sys_list_class	10	31	df43ea90-208b-4e11-aeda-35be0b786af4	0	成功表格回显样式	2025-12-02 00:10:58.140441	2025-12-02 00:10:58.140441
+4	信息(info)	info		\N	f	sys_list_class	10	32	f05b9436-8a0e-4c88-871f-776e1345816c	0	信息表格回显样式	2025-12-02 00:10:58.140444	2025-12-02 00:10:58.140444
+5	警告(warning)	warning		\N	f	sys_list_class	10	33	921e4309-9fb5-4c6c-8c30-92f74a227615	0	警告表格回显样式	2025-12-02 00:10:58.140447	2025-12-02 00:10:58.140448
+6	危险(danger)	danger		\N	f	sys_list_class	10	34	292c8ad4-0238-4255-ab83-99a06d180502	0	危险表格回显样式	2025-12-02 00:10:58.140451	2025-12-02 00:10:58.140451
 \.
 
 
@@ -3520,16 +3124,16 @@ COPY public.sys_dict_data (dict_sort, dict_label, dict_value, css_class, list_cl
 --
 
 COPY public.sys_dict_type (dict_name, dict_type, id, uuid, status, description, created_time, updated_time) FROM stdin;
-用户性别	sys_user_sex	1	44926587-725e-4b70-9e68-0da131093d61	0	用户性别列表	2025-11-29 14:16:23.952884	2025-11-29 14:16:23.952885
-系统是否	sys_yes_no	2	d0b80ed7-9bf4-498c-a775-06a86ed2a22a	0	系统是否列表	2025-11-29 14:16:23.952889	2025-11-29 14:16:23.952889
-系统状态	sys_common_status	3	9ba9d2ab-4e22-4dc7-8213-070d8e9a8b48	0	系统状态	2025-11-29 14:16:23.952892	2025-11-29 14:16:23.952892
-通知类型	sys_notice_type	4	41f912ce-3a17-481c-932c-a6d54bd86370	0	通知类型列表	2025-11-29 14:16:23.952895	2025-11-29 14:16:23.952895
-操作类型	sys_oper_type	5	f6cd3a92-d8bd-4bf3-a17c-a601e53a8527	0	操作类型列表	2025-11-29 14:16:23.952898	2025-11-29 14:16:23.952899
-任务存储器	sys_job_store	6	a6e9f3cd-07ec-4a59-a06a-212b1a41d234	0	任务分组列表	2025-11-29 14:16:23.952901	2025-11-29 14:16:23.952902
-任务执行器	sys_job_executor	7	7faeebca-ed7d-4e1d-96c9-3537e6b99407	0	任务执行器列表	2025-11-29 14:16:23.952904	2025-11-29 14:16:23.952905
-任务函数	sys_job_function	8	97202b52-07ab-4070-b9ae-c7cac1becf33	0	任务函数列表	2025-11-29 14:16:23.952907	2025-11-29 14:16:23.952908
-任务触发器	sys_job_trigger	9	cb3bdb00-9fb3-4781-8427-9bc7d5959a43	0	任务触发器列表	2025-11-29 14:16:23.95291	2025-11-29 14:16:23.952911
-表格回显样式	sys_list_class	10	c50bdf25-8ea9-4148-b779-9935deecef8c	0	表格回显样式列表	2025-11-29 14:16:23.952913	2025-11-29 14:16:23.952914
+用户性别	sys_user_sex	1	9a1f9921-8a16-4b1a-a1dd-3c286f4f3b1d	0	用户性别列表	2025-12-02 00:10:58.137202	2025-12-02 00:10:58.137203
+系统是否	sys_yes_no	2	06f04918-c4c6-4ac8-b34a-cb4cad4e3163	0	系统是否列表	2025-12-02 00:10:58.137208	2025-12-02 00:10:58.137208
+系统状态	sys_common_status	3	de106c83-878f-4ae7-9e37-fa6d18f8ae37	0	系统状态	2025-12-02 00:10:58.137212	2025-12-02 00:10:58.137212
+通知类型	sys_notice_type	4	577181a9-4730-44cb-916f-da8a47257278	0	通知类型列表	2025-12-02 00:10:58.137215	2025-12-02 00:10:58.137216
+操作类型	sys_oper_type	5	b23bcb50-4f63-4cc2-b2fc-389cdbfccbe9	0	操作类型列表	2025-12-02 00:10:58.137219	2025-12-02 00:10:58.137219
+任务存储器	sys_job_store	6	e130f1bb-ff22-461b-ae49-9e6d50744a0b	0	任务分组列表	2025-12-02 00:10:58.137222	2025-12-02 00:10:58.137222
+任务执行器	sys_job_executor	7	6d717c62-83ba-4dbf-875d-29b1d946adfb	0	任务执行器列表	2025-12-02 00:10:58.137225	2025-12-02 00:10:58.137226
+任务函数	sys_job_function	8	3439f4fb-b7fd-4eb9-8fbc-502864d0ddac	0	任务函数列表	2025-12-02 00:10:58.137229	2025-12-02 00:10:58.137229
+任务触发器	sys_job_trigger	9	50a0a4f1-4a49-4a09-bbc4-862e43dfd319	0	任务触发器列表	2025-12-02 00:10:58.137232	2025-12-02 00:10:58.137232
+表格回显样式	sys_list_class	10	a45b74b9-b8eb-4ced-8b92-f57b402a22ce	0	表格回显样式列表	2025-12-02 00:10:58.137235	2025-12-02 00:10:58.137235
 \.
 
 
@@ -3537,7 +3141,7 @@ COPY public.sys_dict_type (dict_name, dict_type, id, uuid, status, description, 
 -- Data for Name: sys_log; Type: TABLE DATA; Schema: public; Owner: tao
 --
 
-COPY public.sys_log (type, request_path, request_method, request_payload, request_ip, login_location, request_os, request_browser, response_code, response_json, process_time, id, uuid, status, description, created_time, updated_time, created_id, updated_id, tenant_id, customer_id) FROM stdin;
+COPY public.sys_log (type, request_path, request_method, request_payload, request_ip, login_location, request_os, request_browser, response_code, response_json, process_time, id, uuid, status, description, created_time, updated_time, created_id, updated_id) FROM stdin;
 \.
 
 
@@ -3546,134 +3150,118 @@ COPY public.sys_log (type, request_path, request_method, request_payload, reques
 --
 
 COPY public.sys_menu (name, type, "order", permission, icon, route_name, route_path, component_path, redirect, hidden, keep_alive, always_show, title, params, affix, parent_id, id, uuid, status, description, created_time, updated_time) FROM stdin;
-仪表盘	1	1		client	Dashboard	/dashboard	\N	/dashboard/workplace	f	t	t	仪表盘	null	f	\N	1	4657cd9d-5677-4bef-b16a-7e4679fc479d	0	初始化数据	2025-11-29 14:16:23.936944	2025-11-29 14:16:23.936946
-系统管理	1	2	\N	system	System	/system	\N	/system/menu	f	t	f	系统管理	null	f	\N	2	6f79c158-9adb-42c1-9e00-587a097c4d5e	0	初始化数据	2025-11-29 14:16:23.93695	2025-11-29 14:16:23.93695
-应用管理	1	3	\N	el-icon-ShoppingBag	Application	/application	\N	/application/myapp	f	f	f	应用管理	null	f	\N	3	3ed9440f-76da-4100-92ea-8ab100fdcea5	0	初始化数据	2025-11-29 14:16:23.936954	2025-11-29 14:16:23.936954
-监控管理	1	4	\N	monitor	Monitor	/monitor	\N	/monitor/online	f	f	f	监控管理	null	f	\N	4	dd314791-f4e0-4dba-bf62-87472f736f12	0	初始化数据	2025-11-29 14:16:23.936957	2025-11-29 14:16:23.936957
-代码管理	1	5	\N	code	Gencode	/gencode	\N	/gencode/backcode	f	f	f	代码管理	null	f	\N	5	0723bece-7088-446a-9ef4-2b9c1704c7c4	0	代码管理	2025-11-29 14:16:23.93696	2025-11-29 14:16:23.936961
-接口管理	1	6	\N	document	Common	/common	\N	/common/docs	f	f	f	接口管理	null	f	\N	6	b2bcb85b-dc04-4d5d-9c77-beeaef040357	0	初始化数据	2025-11-29 14:16:23.936964	2025-11-29 14:16:23.936964
-案例管理	1	7	\N	el-icon-ElementPlus	Example	/example	\N	/example/demo	f	f	f	案例管理	null	f	\N	7	093b931f-7e0a-46c2-8316-37d22888eee9	0	案例管理	2025-11-29 14:16:23.936967	2025-11-29 14:16:23.936967
-工作台	2	1	dashboard:workplace:query	el-icon-PieChart	Workplace	/dashboard/workplace	dashboard/workplace	\N	f	t	f	工作台	null	f	1	8	fae598aa-3fb3-4889-b8b2-44c7aec3daea	0	初始化数据	2025-11-29 14:16:23.9394	2025-11-29 14:16:23.939402
-菜单管理	2	1	module_system:menu:query	menu	Menu	/system/menu	module_system/menu/index	\N	f	t	f	菜单管理	null	f	2	9	8a93b80a-eb04-470a-906f-946f2c9c016b	0	初始化数据	2025-11-29 14:16:23.939406	2025-11-29 14:16:23.939406
-部门管理	2	2	module_system:dept:query	tree	Dept	/system/dept	module_system/dept/index	\N	f	t	f	部门管理	null	f	2	10	c6aaed4e-8534-4fbe-a99d-8fd755660463	0	初始化数据	2025-11-29 14:16:23.939409	2025-11-29 14:16:23.93941
-租户管理	2	3	module_system:tenant:query	el-icon-Avatar	Tenant	/system/tenant	module_system/tenant/index	\N	f	t	f	租户管理	null	f	2	11	13c36a65-50b8-444d-8c20-090a7f2baa18	0	初始化数据	2025-11-29 14:16:23.939412	2025-11-29 14:16:23.939413
-客户管理	2	3	module_system:customer:query	el-icon-Avatar	Customer	/system/customer	module_system/customer/index	\N	f	t	f	客户管理	null	f	2	12	311181cb-9866-47d5-9525-61ea6b123a89	0	初始化数据	2025-11-29 14:16:23.939416	2025-11-29 14:16:23.939416
-岗位管理	2	3	module_system:position:query	el-icon-Coordinate	Position	/system/position	module_system/position/index	\N	f	t	f	岗位管理	null	f	2	13	1e50a69f-52a8-4950-abed-bcbe8cbb5410	0	初始化数据	2025-11-29 14:16:23.939419	2025-11-29 14:16:23.939419
-角色管理	2	4	module_system:role:query	role	Role	/system/role	module_system/role/index	\N	f	t	f	角色管理	null	f	2	14	69879245-938b-49e3-becd-113ca6d67e23	0	初始化数据	2025-11-29 14:16:23.939422	2025-11-29 14:16:23.939422
-用户管理	2	5	module_system:user:query	el-icon-User	User	/system/user	module_system/user/index	\N	f	t	f	用户管理	null	f	2	15	f16c21b9-6aaf-4812-8665-4229049288ba	0	初始化数据	2025-11-29 14:16:23.939425	2025-11-29 14:16:23.939426
-日志管理	2	6	module_system:log:query	el-icon-Aim	Log	/system/log	module_system/log/index	\N	f	t	f	日志管理	null	f	2	16	a4eaff40-c461-4ddf-9e1d-104ba04bb2e2	0	初始化数据	2025-11-29 14:16:23.939428	2025-11-29 14:16:23.939429
-公告管理	2	7	module_system:notice:query	bell	Notice	/system/notice	module_system/notice/index	\N	f	t	f	公告管理	null	f	2	17	d3991e02-3111-455e-8ed7-718ca66d2e12	0	初始化数据	2025-11-29 14:16:23.939432	2025-11-29 14:16:23.939432
-参数管理	2	8	module_system:param:query	setting	Params	/system/param	module_system/param/index	\N	f	t	f	参数管理	null	f	2	18	a7932a32-ed63-43f8-9cf9-e93c965b810d	0	初始化数据	2025-11-29 14:16:23.939435	2025-11-29 14:16:23.939435
-字典管理	2	9	module_system:dict_type:query	dict	Dict	/system/dict	module_system/dict/index	\N	f	t	f	字典管理	null	f	2	19	0ccda89e-029a-4357-851f-27bd3decab69	0	初始化数据	2025-11-29 14:16:23.939438	2025-11-29 14:16:23.939438
-我的应用	2	1	module_application:myapp:query	el-icon-ShoppingCartFull	MYAPP	/application/myapp	module_application/myapp/index	\N	f	t	f	我的应用	null	f	3	20	daa46d9d-fb7e-4035-ac24-3f438c4cc636	0	初始化数据	2025-11-29 14:16:23.939441	2025-11-29 14:16:23.939442
-任务管理	2	2	module_application:job:query	el-icon-DataLine	Job	/application/job	module_application/job/index	\N	f	t	f	任务管理	null	f	3	21	a659669f-8fdc-4b68-9933-71c5cbd00250	0	初始化数据	2025-11-29 14:16:23.939444	2025-11-29 14:16:23.939445
-AI智能助手	2	3	module_application:ai:chat	el-icon-ToiletPaper	AI	/application/ai	module_application/ai/index	\N	f	t	f	AI智能助手	null	f	3	22	f4ad6ff7-7c70-4019-a88a-9d00bbd1f2b5	0	AI智能助手	2025-11-29 14:16:23.939447	2025-11-29 14:16:23.939448
-流程管理	2	4	module_application:workflow:query	el-icon-ShoppingBag	Workflow	/application/workflow	module_application/workflow/index	\N	f	t	f	我的流程	null	f	3	23	2e8c4d8e-1fff-4f7a-aa1c-bfe65b539df1	0	我的流程	2025-11-29 14:16:23.93945	2025-11-29 14:16:23.939451
-在线用户	2	1	module_monitor:online:query	el-icon-Headset	MonitorOnline	/monitor/online	module_monitor/online/index	\N	f	f	f	在线用户	null	f	4	24	fc40d87e-e8f4-4df0-a731-56c7508c5e2d	0	初始化数据	2025-11-29 14:16:23.939453	2025-11-29 14:16:23.939454
-服务器监控	2	2	module_monitor:server:query	el-icon-Odometer	MonitorServer	/monitor/server	module_monitor/server/index	\N	f	f	f	服务器监控	null	f	4	25	315067e2-65da-4f26-8268-1bee7bc4cc3c	0	初始化数据	2025-11-29 14:16:23.939456	2025-11-29 14:16:23.939457
-缓存监控	2	3	module_monitor:cache:query	el-icon-Stopwatch	MonitorCache	/monitor/cache	module_monitor/cache/index	\N	f	f	f	缓存监控	null	f	4	26	109c4c54-1929-4f2f-8ea8-6aca0ca60e38	0	初始化数据	2025-11-29 14:16:23.93946	2025-11-29 14:16:23.93946
-文件管理	2	4	module_monitor:resource:query	el-icon-Files	Resource	/monitor/resource	module_monitor/resource/index	\N	f	t	f	文件管理	null	f	4	27	61637b66-60c0-4fb7-beeb-d7e8bd3a7b55	0	初始化数据	2025-11-29 14:16:23.939463	2025-11-29 14:16:23.939463
-代码生成	2	1	module_generator:gencode:query	code	Backcode	/gencode/backcode	module_generator/backcode/index	\N	f	t	f	代码生成	null	f	5	28	265feebd-b7d1-41ae-85e9-99e145732588	0	代码生成	2025-11-29 14:16:23.939466	2025-11-29 14:16:23.939466
-Swagger文档	4	1	module_common:docs:query	api	Docs	/common/docs	module_common/docs/index	\N	f	f	f	Swagger文档	null	f	6	29	0eb3a618-8ad3-4f11-837e-b3a990a72ed6	0	初始化数据	2025-11-29 14:16:23.939469	2025-11-29 14:16:23.939469
-Redoc文档	4	2	module_common:redoc:query	el-icon-Document	Redoc	/common/redoc	module_common/redoc/index	\N	f	f	f	Redoc文档	null	f	6	30	b1cf605c-6c5f-43be-99f9-0e427093d9de	0	初始化数据	2025-11-29 14:16:23.939472	2025-11-29 14:16:23.939472
-示例管理	2	1	module_example:demo:query	el-icon-ElementPlus	Demo	/example/demo	module_example/demo/index	\N	f	t	f	示例管理	null	f	7	31	54b66adb-0b2c-4664-a9d3-570203193a2e	0	示例管理	2025-11-29 14:16:23.939475	2025-11-29 14:16:23.939475
-创建菜单	3	1	module_system:menu:create	\N	\N	\N	\N	\N	f	t	f	创建菜单	null	f	9	32	aa82c1c4-9231-4933-9535-904529bcda71	0	初始化数据	2025-11-29 14:16:23.942735	2025-11-29 14:16:23.942737
-修改菜单	3	2	module_system:menu:update	\N	\N	\N	\N	\N	f	t	f	修改菜单	null	f	9	33	dfb453e4-822d-4bee-a01a-e360b599e8ff	0	初始化数据	2025-11-29 14:16:23.942741	2025-11-29 14:16:23.942741
-删除菜单	3	3	module_system:menu:delete	\N	\N	\N	\N	\N	f	t	f	删除菜单	null	f	9	34	ca9a4272-6c29-482b-a420-4000a7042da5	0	初始化数据	2025-11-29 14:16:23.942744	2025-11-29 14:16:23.942745
-批量修改菜单状态	3	4	module_system:menu:patch	\N	\N	\N	\N	\N	f	t	f	批量修改菜单状态	null	f	9	35	87a0d56f-ece4-4d50-84a2-4eb04c8cad94	0	初始化数据	2025-11-29 14:16:23.942748	2025-11-29 14:16:23.942748
-创建部门	3	1	module_system:dept:create	\N	\N	\N	\N	\N	f	t	f	创建部门	null	f	10	36	43a3d9d9-f960-429b-88ed-a4fe686aaa95	0	初始化数据	2025-11-29 14:16:23.942751	2025-11-29 14:16:23.942751
-修改部门	3	2	module_system:dept:update	\N	\N	\N	\N	\N	f	t	f	修改部门	null	f	10	37	3f83ecf8-bf22-4a6b-8548-1857abe64178	0	初始化数据	2025-11-29 14:16:23.942754	2025-11-29 14:16:23.942755
-删除部门	3	3	module_system:dept:delete	\N	\N	\N	\N	\N	f	t	f	删除部门	null	f	10	38	c6b932ff-8ed4-4bb6-bf99-818f138295df	0	初始化数据	2025-11-29 14:16:23.942759	2025-11-29 14:16:23.942759
-批量修改部门状态	3	4	module_system:dept:patch	\N	\N	\N	\N	\N	f	t	f	批量修改部门状态	null	f	10	39	1398bccd-cdd5-45a6-ac0b-e38610106b2d	0	初始化数据	2025-11-29 14:16:23.942762	2025-11-29 14:16:23.942763
-创建租户	3	1	module_system:tenant:create	\N	\N	\N	\N	\N	f	t	f	创建租户	null	f	11	40	abb924a3-af4e-4a3c-aa6e-7fb25eb26d83	0	初始化数据	2025-11-29 14:16:23.942766	2025-11-29 14:16:23.942766
-更新租户	3	2	module_system:tenant:update	\N	\N	\N	\N	\N	f	t	f	更新租户	null	f	11	41	519611f4-8a0a-4a5e-9cf2-e292c2179259	0	初始化数据	2025-11-29 14:16:23.942769	2025-11-29 14:16:23.942769
-删除租户	3	3	module_system:tenant:delete	\N	\N	\N	\N	\N	f	t	f	删除租户	null	f	11	42	e79b41f7-70e9-4bb3-ae74-a855790d10c0	0	初始化数据	2025-11-29 14:16:23.942772	2025-11-29 14:16:23.942772
-批量修改租户状态	3	4	module_system:tenant:patch	\N	\N	\N	\N	\N	f	t	f	批量修改租户状态	null	f	11	43	e1272443-8cd3-4dfa-a8bc-0c586fe86ee2	0	初始化数据	2025-11-29 14:16:23.942775	2025-11-29 14:16:23.942776
-导出租户	3	5	module_system:tenant:export	\N	\N	\N	\N	\N	f	t	f	导出租户	null	f	11	44	c57524a7-c153-4f61-adc7-dd79b8914bf2	0	初始化数据	2025-11-29 14:16:23.942778	2025-11-29 14:16:23.942779
-导入租户	3	6	module_system:tenant:import	\N	\N	\N	\N	\N	f	t	f	导入租户	null	f	11	45	78ac3299-4fc2-4db8-a8a5-a9f15ef37101	0	初始化数据	2025-11-29 14:16:23.942781	2025-11-29 14:16:23.942782
-下载导入租户模版	3	7	module_system:tenant:download	\N	\N	\N	\N	\N	f	t	f	下载导入租户模版	null	f	11	46	7d4d961f-a5f4-49fd-92d4-09dd08e806aa	0	初始化数据	2025-11-29 14:16:23.942785	2025-11-29 14:16:23.942785
-创建客户	3	1	module_system:customer:create	\N	\N	\N	\N	\N	f	t	f	创建客户	null	f	12	47	293b646f-cf8e-4eab-8894-a4b27c7a404c	0	初始化数据	2025-11-29 14:16:23.942788	2025-11-29 14:16:23.942788
-更新客户	3	2	module_system:customer:update	\N	\N	\N	\N	\N	f	t	f	更新客户	null	f	12	48	082a68cc-e172-486b-8581-327aacb8d363	0	初始化数据	2025-11-29 14:16:23.942791	2025-11-29 14:16:23.942791
-删除客户	3	3	module_system:customer:delete	\N	\N	\N	\N	\N	f	t	f	删除客户	null	f	12	49	f076789d-f8d0-41ec-a337-e8dd1fdaf88b	0	初始化数据	2025-11-29 14:16:23.942794	2025-11-29 14:16:23.942795
-批量修改客户状态	3	4	module_system:customer:patch	\N	\N	\N	\N	\N	f	t	f	批量修改客户状态	null	f	12	50	0ebf030b-23dd-4610-812c-e90d87f624a8	0	初始化数据	2025-11-29 14:16:23.942797	2025-11-29 14:16:23.942798
-导出客户	3	5	module_system:customer:export	\N	\N	\N	\N	\N	f	t	f	导出客户	null	f	12	51	48d7c0f7-afa9-4216-b40a-64944b37f60d	0	初始化数据	2025-11-29 14:16:23.942801	2025-11-29 14:16:23.942801
-导入客户	3	6	module_system:customer:import	\N	\N	\N	\N	\N	f	t	f	导入客户	null	f	12	52	67e717d1-c345-4f6b-b269-82ce3fdf5e27	0	初始化数据	2025-11-29 14:16:23.942804	2025-11-29 14:16:23.942804
-下载导入客户模版	3	7	module_system:customer:download	\N	\N	\N	\N	\N	f	t	f	下载导入客户模版	null	f	12	53	d84ff772-d4bc-4623-bda8-a1b4d4a101c6	0	初始化数据	2025-11-29 14:16:23.942807	2025-11-29 14:16:23.942807
-创建岗位	3	1	module_system:position:create	\N	\N	\N	\N	\N	f	t	f	创建岗位	null	f	13	54	ab02ab9a-4598-4a27-b7ee-b6ed92ed4c45	0	初始化数据	2025-11-29 14:16:23.94281	2025-11-29 14:16:23.94281
-修改岗位	3	2	module_system:position:update	\N	\N	\N	\N	\N	f	t	f	修改岗位	null	f	13	55	335614ea-cf42-4c69-8358-24b6105bb4de	0	初始化数据	2025-11-29 14:16:23.942813	2025-11-29 14:16:23.942813
-删除岗位	3	3	module_system:position:delete	\N	\N	\N	\N	\N	f	t	f	修改岗位	null	f	13	56	34e5f7a6-a387-4053-9909-0616bc0ee86c	0	初始化数据	2025-11-29 14:16:23.942816	2025-11-29 14:16:23.942816
-批量修改岗位状态	3	4	module_system:position:patch	\N	\N	\N	\N	\N	f	t	f	批量修改岗位状态	null	f	13	57	b0bcbc03-8235-4d69-8e5c-36da5082d153	0	初始化数据	2025-11-29 14:16:23.942819	2025-11-29 14:16:23.942819
-岗位导出	3	5	module_system:position:export	\N	\N	\N	\N	\N	f	t	f	岗位导出	null	f	13	58	ad9b0a5f-eb3d-4358-a0c6-145aa2086f41	0	初始化数据	2025-11-29 14:16:23.942822	2025-11-29 14:16:23.942822
-设置角色权限	3	8	module_system:role:permission	\N	\N	\N	\N	\N	f	t	f	设置角色权限	null	f	13	59	10a29b33-c585-41a6-93e0-cadc6dec5c85	0	初始化数据	2025-11-29 14:16:23.942825	2025-11-29 14:16:23.942826
-创建角色	3	1	module_system:role:create	\N	\N	\N	\N	\N	f	t	f	创建角色	null	f	14	60	90e2d895-63d5-4da8-87d0-cef5adf69301	0	初始化数据	2025-11-29 14:16:23.942828	2025-11-29 14:16:23.942829
-修改角色	3	2	module_system:role:update	\N	\N	\N	\N	\N	f	t	f	修改角色	null	f	14	61	d0696963-4ab0-45c2-8a9e-d5b84d66d4d3	0	初始化数据	2025-11-29 14:16:23.942831	2025-11-29 14:16:23.942832
-删除角色	3	3	module_system:role:delete	\N	\N	\N	\N	\N	f	t	f	删除角色	null	f	14	62	c2d671b8-2570-41cb-9ad4-7c39d65fccf2	0	初始化数据	2025-11-29 14:16:23.942834	2025-11-29 14:16:23.942835
-批量修改角色状态	3	4	module_system:role:patch	\N	\N	\N	\N	\N	f	t	f	批量修改角色状态	null	f	14	63	82388ca9-0e7b-4475-a2bc-155b07e18a21	0	初始化数据	2025-11-29 14:16:23.942837	2025-11-29 14:16:23.942838
-角色导出	3	6	module_system:role:export	\N	\N	\N	\N	\N	f	t	f	角色导出	null	f	14	64	125a5236-3bd4-4710-aa42-fb498a104db6	0	初始化数据	2025-11-29 14:16:23.94284	2025-11-29 14:16:23.942841
-创建用户	3	1	module_system:user:create	\N	\N	\N	\N	\N	f	t	f	创建用户	null	f	15	65	172d5c4d-34c4-46df-a4da-484d7f546d70	0	初始化数据	2025-11-29 14:16:23.942843	2025-11-29 14:16:23.942844
-修改用户	3	2	module_system:user:update	\N	\N	\N	\N	\N	f	t	f	修改用户	null	f	15	66	74bf464a-547e-4598-be10-77f94576e26a	0	初始化数据	2025-11-29 14:16:23.942847	2025-11-29 14:16:23.942847
-删除用户	3	3	module_system:user:delete	\N	\N	\N	\N	\N	f	t	f	删除用户	null	f	15	67	17cf8597-60cb-47f3-b61d-8b319d0700c4	0	初始化数据	2025-11-29 14:16:23.94285	2025-11-29 14:16:23.94285
-批量修改用户状态	3	4	module_system:user:patch	\N	\N	\N	\N	\N	f	t	f	批量修改用户状态	null	f	15	68	d8f2e7d9-9af6-4a08-a242-f804dc010dcb	0	初始化数据	2025-11-29 14:16:23.942853	2025-11-29 14:16:23.942853
-导出用户	3	5	module_system:user:export	\N	\N	\N	\N	\N	f	t	f	导出用户	null	f	15	69	3d84d689-bcb0-4b45-abcd-ca9d98d0c467	0	初始化数据	2025-11-29 14:16:23.942856	2025-11-29 14:16:23.942856
-导入用户	3	6	module_system:user:import	\N	\N	\N	\N	\N	f	t	f	导入用户	null	f	15	70	3ad61b82-cb6f-444c-9a15-1ffb57544550	0	初始化数据	2025-11-29 14:16:23.942875	2025-11-29 14:16:23.942876
-日志删除	3	1	module_system:log:delete	\N	\N	\N	\N	\N	f	t	f	日志删除	null	f	16	71	72210149-6110-49ec-a83c-c74ea12e241e	0	初始化数据	2025-11-29 14:16:23.942881	2025-11-29 14:16:23.942882
-日志导出	3	2	module_system:log:export	\N	\N	\N	\N	\N	f	t	f	日志导出	null	f	16	72	4e63615f-be34-4321-b2b9-161ae418f2b8	0	初始化数据	2025-11-29 14:16:23.942885	2025-11-29 14:16:23.942885
-公告创建	3	1	module_system:notice:create	\N	\N	\N	\N	\N	f	t	f	公告创建	null	f	17	73	8d1a4c22-9e25-4cf8-8cda-3adcf9eed966	0	初始化数据	2025-11-29 14:16:23.942888	2025-11-29 14:16:23.942889
-公告修改	3	2	module_system:notice:update	\N	\N	\N	\N	\N	f	t	f	修改用户	null	f	17	74	3323e962-5dc1-4641-9ec5-53fd11a8ad80	0	初始化数据	2025-11-29 14:16:23.942892	2025-11-29 14:16:23.942892
-公告删除	3	3	module_system:notice:delete	\N	\N	\N	\N	\N	f	t	f	公告删除	null	f	17	75	44fcc1bb-b743-4fd7-bd4d-96d7fd18b66b	0	初始化数据	2025-11-29 14:16:23.942895	2025-11-29 14:16:23.942895
-公告导出	3	4	module_system:notice:export	\N	\N	\N	\N	\N	f	t	f	公告导出	null	f	17	76	a0638ae7-df7d-4d58-adf0-3094976d8eaa	0	初始化数据	2025-11-29 14:16:23.942898	2025-11-29 14:16:23.942898
-公告批量修改状态	3	5	module_system:notice:patch	\N	\N	\N	\N	\N	f	t	f	公告批量修改状态	null	f	17	77	0ff55024-4c16-44f1-ac31-e8cff97bbcd1	0	初始化数据	2025-11-29 14:16:23.942901	2025-11-29 14:16:23.942902
-创建参数	3	1	module_system:param:create	\N	\N	\N	\N	\N	f	t	f	创建参数	null	f	18	78	c44b1f08-ebea-421f-bb4c-1904ce2b1827	0	初始化数据	2025-11-29 14:16:23.942904	2025-11-29 14:16:23.942905
-修改参数	3	2	module_system:param:update	\N	\N	\N	\N	\N	f	t	f	修改参数	null	f	18	79	43837d6d-c28e-4f7c-b901-97f0bb70b1a2	0	初始化数据	2025-11-29 14:16:23.942908	2025-11-29 14:16:23.942908
-删除参数	3	3	module_system:param:delete	\N	\N	\N	\N	\N	f	t	f	删除参数	null	f	18	80	badb0c33-7591-4aff-84a7-6b9b1b4fa7a8	0	初始化数据	2025-11-29 14:16:23.942911	2025-11-29 14:16:23.942911
-导出参数	3	4	module_system:param:export	\N	\N	\N	\N	\N	f	t	f	导出参数	null	f	18	81	a158f329-df49-468e-b31f-4eb2f3f68374	0	初始化数据	2025-11-29 14:16:23.942914	2025-11-29 14:16:23.942914
-参数上传	3	5	module_system:param:upload	\N	\N	\N	\N	\N	f	t	f	参数上传	null	f	18	82	6377eb53-46d3-4160-b1f8-17be4c0a9dd5	0	初始化数据	2025-11-29 14:16:23.942917	2025-11-29 14:16:23.942917
-创建字典类型	3	1	module_system:dict_type:create	\N	\N	\N	\N	\N	f	t	f	创建字典类型	null	f	19	83	1cd9d07d-bd1e-4061-97e0-d9a8e71af575	0	初始化数据	2025-11-29 14:16:23.94292	2025-11-29 14:16:23.94292
-修改字典类型	3	2	module_system:dict_type:update	\N	\N	\N	\N	\N	f	t	f	修改字典类型	null	f	19	84	81cad0ae-435e-4fa8-b310-de047006b634	0	初始化数据	2025-11-29 14:16:23.942923	2025-11-29 14:16:23.942924
-删除字典类型	3	3	module_system:dict_type:delete	\N	\N	\N	\N	\N	f	t	f	删除字典类型	null	f	19	85	83845f00-ac6e-4af9-b52a-0bffc3554edf	0	初始化数据	2025-11-29 14:16:23.942926	2025-11-29 14:16:23.942927
-导出字典类型	3	4	module_system:dict_type:export	\N	\N	\N	\N	\N	f	t	f	导出字典类型	null	f	19	86	72db0ed4-95a2-416b-8305-b29eb0f7bafd	0	初始化数据	2025-11-29 14:16:23.942929	2025-11-29 14:16:23.94293
-批量修改字典状态	3	5	module_system:dict_type:patch	\N	\N	\N	\N	\N	f	t	f	导出字典类型	null	f	19	87	8139361b-5062-44c6-8772-39416468b398	0	初始化数据	2025-11-29 14:16:23.942932	2025-11-29 14:16:23.942933
-字典数据查询	3	6	module_system:dict_data:query	\N	\N	\N	\N	\N	f	t	f	字典数据查询	null	f	19	88	4b00c80d-2437-434e-b0f5-ce8079cf6818	0	初始化数据	2025-11-29 14:16:23.942935	2025-11-29 14:16:23.942936
-创建字典数据	3	7	module_system:dict_data:create	\N	\N	\N	\N	\N	f	t	f	创建字典数据	null	f	19	89	1b927ed4-13f3-4c44-b8b1-cddb11969681	0	初始化数据	2025-11-29 14:16:23.942938	2025-11-29 14:16:23.942939
-修改字典数据	3	8	module_system:dict_data:update	\N	\N	\N	\N	\N	f	t	f	修改字典数据	null	f	19	90	bca00c47-6374-4619-8849-9635dd7c9859	0	初始化数据	2025-11-29 14:16:23.942941	2025-11-29 14:16:23.942942
-删除字典数据	3	9	module_system:dict_data:delete	\N	\N	\N	\N	\N	f	t	f	删除字典数据	null	f	19	91	7c331190-2661-4c8e-afe8-8548e49441d6	0	初始化数据	2025-11-29 14:16:23.942945	2025-11-29 14:16:23.942945
-导出字典数据	3	10	module_system:dict_data:export	\N	\N	\N	\N	\N	f	t	f	导出字典数据	null	f	19	92	12db0f29-4fef-49db-a1ae-c73615b2fd06	0	初始化数据	2025-11-29 14:16:23.942948	2025-11-29 14:16:23.942948
-批量修改字典数据状态	3	11	module_system:dict_data:patch	\N	\N	\N	\N	\N	f	t	f	批量修改字典数据状态	null	f	19	93	fbbec277-9120-4b30-821f-1b9324ecdc62	0	初始化数据	2025-11-29 14:16:23.942951	2025-11-29 14:16:23.942951
-创建应用	3	1	module_application:myapp:create	\N	\N	\N	\N	\N	f	t	f	创建应用	null	f	20	94	32f2b6fa-f277-439a-8072-af8fa26b45bb	0	初始化数据	2025-11-29 14:16:23.942954	2025-11-29 14:16:23.942954
-修改应用	3	2	module_application:myapp:update	\N	\N	\N	\N	\N	f	t	f	修改应用	null	f	20	95	ba0dcc56-8ac1-473c-8cdc-61208a5c1e9e	0	初始化数据	2025-11-29 14:16:23.942957	2025-11-29 14:16:23.942957
-删除应用	3	3	module_application:myapp:delete	\N	\N	\N	\N	\N	f	t	f	删除应用	null	f	20	96	6081bd27-8165-417d-878c-21f3bb16d612	0	初始化数据	2025-11-29 14:16:23.94296	2025-11-29 14:16:23.94296
-批量修改应用状态	3	4	module_application:myapp:patch	\N	\N	\N	\N	\N	f	t	f	批量修改应用状态	null	f	20	97	bc758628-d403-405a-9716-1624c5a805ca	0	初始化数据	2025-11-29 14:16:23.942963	2025-11-29 14:16:23.942963
-创建任务	3	1	module_application:job:create	\N	\N	\N	\N	\N	f	t	f	创建任务	null	f	21	98	69d74dc0-12a8-448d-8ad0-db8686c81c00	0	初始化数据	2025-11-29 14:16:23.942966	2025-11-29 14:16:23.942966
-修改和操作任务	3	2	module_application:job:update	\N	\N	\N	\N	\N	f	t	f	修改和操作任务	null	f	21	99	e8392584-ed58-45b9-88b3-476dea1ad06f	0	初始化数据	2025-11-29 14:16:23.942969	2025-11-29 14:16:23.94297
-删除和清除任务	3	3	module_application:job:delete	\N	\N	\N	\N	\N	f	t	f	删除和清除任务	null	f	21	100	67a21be2-779d-4dd7-b2d3-aa51e5cfa806	0	初始化数据	2025-11-29 14:16:23.942972	2025-11-29 14:16:23.942973
-导出定时任务	3	4	module_application:job:export	\N	\N	\N	\N	\N	f	t	f	导出定时任务	null	f	21	101	469cbbab-bbe3-4f0c-ba3d-50e5d00427b7	0	初始化数据	2025-11-29 14:16:23.942975	2025-11-29 14:16:23.942976
-智能对话	3	1	module_application:ai:chat	\N	\N	\N	\N	\N	f	t	f	智能对话	null	f	22	102	5d6bd88d-5f27-48a6-afec-036b3d5ce807	0	智能对话	2025-11-29 14:16:23.942978	2025-11-29 14:16:23.942979
-在线用户强制下线	3	1	module_monitor:online:delete	\N	\N	\N	\N	\N	f	f	f	在线用户强制下线	null	f	24	103	84c30da6-ee04-482a-af70-a10497cbd0d8	0	初始化数据	2025-11-29 14:16:23.942981	2025-11-29 14:16:23.942982
-清除缓存	3	1	module_monitor:cache:delete	\N	\N	\N	\N	\N	f	f	f	清除缓存	null	f	26	104	e55975e9-ec3a-49e8-8ccd-598cae37ab86	0	初始化数据	2025-11-29 14:16:23.942985	2025-11-29 14:16:23.942985
-文件上传	3	1	module_monitor:resource:upload	\N	\N	\N	\N	\N	f	t	f	文件上传	null	f	27	105	e98a6153-3597-40c2-aac8-7ebef355873d	0	初始化数据	2025-11-29 14:16:23.942988	2025-11-29 14:16:23.942988
-文件下载	3	2	module_monitor:resource:download	\N	\N	\N	\N	\N	f	t	f	文件下载	null	f	27	106	edbc002e-676a-420d-8e90-703b5067d0f8	0	初始化数据	2025-11-29 14:16:23.942991	2025-11-29 14:16:23.942991
-文件删除	3	3	module_monitor:resource:delete	\N	\N	\N	\N	\N	f	t	f	文件删除	null	f	27	107	27a84b07-7ca6-4b32-bead-a09a224da616	0	初始化数据	2025-11-29 14:16:23.942994	2025-11-29 14:16:23.942994
-文件移动	3	4	module_monitor:resource:move	\N	\N	\N	\N	\N	f	t	f	文件移动	null	f	27	108	d6f63456-1fe0-45a6-8eab-15e4e4d3cf85	0	初始化数据	2025-11-29 14:16:23.942997	2025-11-29 14:16:23.942997
-文件复制	3	5	module_monitor:resource:copy	\N	\N	\N	\N	\N	f	t	f	文件复制	null	f	27	109	edd42ca9-4ed6-4d64-a21f-b843a4840fcb	0	初始化数据	2025-11-29 14:16:23.943	2025-11-29 14:16:23.943
-文件重命名	3	6	module_monitor:resource:rename	\N	\N	\N	\N	\N	f	t	f	文件重命名	null	f	27	110	a05a0a90-c988-4913-80d6-8147b1f33e39	0	初始化数据	2025-11-29 14:16:23.943003	2025-11-29 14:16:23.943003
-创建目录	3	7	module_monitor:resource:create_dir	\N	\N	\N	\N	\N	f	t	f	创建目录	null	f	27	111	144384b5-eaf8-4cae-886b-8a6c34400f9e	0	初始化数据	2025-11-29 14:16:23.943006	2025-11-29 14:16:23.943006
-导出文件列表	3	9	module_monitor:resource:export	\N	\N	\N	\N	\N	f	t	f	导出文件列表	null	f	27	112	640c1559-b47f-4cff-a5c1-3e162ff8bf2a	0	初始化数据	2025-11-29 14:16:23.943009	2025-11-29 14:16:23.943009
-查询代码生成业务表列表	3	1	module_generator:gencode:query	\N	\N	\N	\N	\N	f	t	f	查询代码生成业务表列表	null	f	28	113	b17e0b45-2ba4-4752-aa77-45530f829df1	0	查询代码生成业务表列表	2025-11-29 14:16:23.943012	2025-11-29 14:16:23.943013
-创建表结构	3	2	module_generator:gencode:create	\N	\N	\N	\N	\N	f	t	f	创建表结构	null	f	28	114	c5907914-fef0-4774-9e48-8d5fa99168fd	0	创建表结构	2025-11-29 14:16:23.943015	2025-11-29 14:16:23.943016
-编辑业务表信息	3	3	module_generator:gencode:update	\N	\N	\N	\N	\N	f	t	f	编辑业务表信息	null	f	28	115	9df43176-9e80-41d8-a2ff-28756e7cef31	0	编辑业务表信息	2025-11-29 14:16:23.943018	2025-11-29 14:16:23.943019
-删除业务表信息	3	4	module_generator:gencode:delete	\N	\N	\N	\N	\N	f	t	f	删除业务表信息	null	f	28	116	95fbbbf5-f952-43d9-8a08-95b9904f063c	0	删除业务表信息	2025-11-29 14:16:23.943021	2025-11-29 14:16:23.943022
-导入表结构	3	5	module_generator:gencode:import	\N	\N	\N	\N	\N	f	t	f	导入表结构	null	f	28	117	e1f88642-7295-4997-9c2d-488fcbd573d3	0	导入表结构	2025-11-29 14:16:23.943024	2025-11-29 14:16:23.943025
-批量生成代码	3	6	module_generator:gencode:operate	\N	\N	\N	\N	\N	f	t	f	批量生成代码	null	f	28	118	ad032fbf-6af7-4b42-9ef4-6a9483bb7860	0	批量生成代码	2025-11-29 14:16:23.943027	2025-11-29 14:16:23.943028
-生成代码到指定路径	3	7	module_generator:gencode:code	\N	\N	\N	\N	\N	f	t	f	生成代码到指定路径	null	f	28	119	0ed95a33-504e-411c-bd7b-25134e77df76	0	生成代码到指定路径	2025-11-29 14:16:23.943031	2025-11-29 14:16:23.943031
-查询数据库表列表	3	8	module_generator:dblist:query	\N	\N	\N	\N	\N	f	t	f	查询数据库表列表	null	f	28	120	5ea4c32c-a173-4bf0-b60b-93743b9a99f3	0	查询数据库表列表	2025-11-29 14:16:23.943034	2025-11-29 14:16:23.943034
-同步数据库	3	9	module_generator:db:sync	\N	\N	\N	\N	\N	f	t	f	同步数据库	null	f	28	121	ac3247a4-caa5-48a4-a868-dee39685b56a	0	同步数据库	2025-11-29 14:16:23.943037	2025-11-29 14:16:23.943037
-创建示例	3	1	module_example:demo:create	\N	\N	\N	\N	\N	f	t	f	创建示例	null	f	31	122	67759f62-1290-476f-8252-9bae8adb6a44	0	初始化数据	2025-11-29 14:16:23.94304	2025-11-29 14:16:23.94304
-更新示例	3	2	module_example:demo:update	\N	\N	\N	\N	\N	f	t	f	更新示例	null	f	31	123	c0fb36ed-ba78-4b54-a26f-4f5f8022ae4e	0	初始化数据	2025-11-29 14:16:23.943043	2025-11-29 14:16:23.943043
-删除示例	3	3	module_example:demo:delete	\N	\N	\N	\N	\N	f	t	f	删除示例	null	f	31	124	ecbb2f6d-d231-4e74-98b6-31c924d5bc98	0	初始化数据	2025-11-29 14:16:23.943046	2025-11-29 14:16:23.943046
-批量修改示例状态	3	4	module_example:demo:patch	\N	\N	\N	\N	\N	f	t	f	批量修改示例状态	null	f	31	125	638dc6c6-8378-4720-af39-0a2e436e7a56	0	初始化数据	2025-11-29 14:16:23.943049	2025-11-29 14:16:23.943049
-导出示例	3	5	module_example:demo:export	\N	\N	\N	\N	\N	f	t	f	导出示例	null	f	31	126	c0d8fca0-7de8-4017-a4c8-71bcf9dd35bb	0	初始化数据	2025-11-29 14:16:23.943052	2025-11-29 14:16:23.943052
-导入示例	3	6	module_example:demo:import	\N	\N	\N	\N	\N	f	t	f	导入示例	null	f	31	127	a71c82d3-ed63-49ce-bff0-86e03326c1fd	0	初始化数据	2025-11-29 14:16:23.943055	2025-11-29 14:16:23.943055
-下载导入示例模版	3	7	module_example:demo:download	\N	\N	\N	\N	\N	f	t	f	下载导入示例模版	null	f	31	128	580baeb3-1e02-4a87-b191-1e01d86ba82e	0	初始化数据	2025-11-29 14:16:23.943058	2025-11-29 14:16:23.943058
+仪表盘	1	1		client	Dashboard	/dashboard	\N	/dashboard/workplace	f	t	t	仪表盘	null	f	\N	1	acf9c5ea-65fd-4e14-88c1-859875b36607	0	初始化数据	2025-12-02 00:10:58.118467	2025-12-02 00:10:58.118471
+系统管理	1	2	\N	system	System	/system	\N	/system/menu	f	t	f	系统管理	null	f	\N	2	039e1632-fb34-4738-a634-e72a48dab645	0	初始化数据	2025-12-02 00:10:58.118475	2025-12-02 00:10:58.118476
+应用管理	1	3	\N	el-icon-ShoppingBag	Application	/application	\N	/application/myapp	f	f	f	应用管理	null	f	\N	3	b8272652-a2c2-452e-b652-60fe6e1551be	0	初始化数据	2025-12-02 00:10:58.118479	2025-12-02 00:10:58.118479
+监控管理	1	4	\N	monitor	Monitor	/monitor	\N	/monitor/online	f	f	f	监控管理	null	f	\N	4	2a8ca145-d525-4d80-bceb-a8983b1827a5	0	初始化数据	2025-12-02 00:10:58.118482	2025-12-02 00:10:58.118482
+代码管理	1	5	\N	code	Gencode	/gencode	\N	/gencode/backcode	f	f	f	代码管理	null	f	\N	5	947883be-e12e-431a-9769-3ba74e9bb86b	0	代码管理	2025-12-02 00:10:58.118485	2025-12-02 00:10:58.118485
+接口管理	1	6	\N	document	Common	/common	\N	/common/docs	f	f	f	接口管理	null	f	\N	6	6035caea-5898-4943-92b9-a9e273de1fc8	0	初始化数据	2025-12-02 00:10:58.118488	2025-12-02 00:10:58.118488
+案例管理	1	7	\N	el-icon-ElementPlus	Example	/example	\N	/example/demo	f	f	f	案例管理	null	f	\N	7	bca1a78f-b20a-485f-a335-ecd2342a82b6	0	案例管理	2025-12-02 00:10:58.118491	2025-12-02 00:10:58.118491
+工作台	2	1	dashboard:workplace:query	el-icon-PieChart	Workplace	/dashboard/workplace	dashboard/workplace	\N	f	t	f	工作台	null	f	1	8	c927cf4f-6df4-4c7a-b6fe-4e13dc13efef	0	初始化数据	2025-12-02 00:10:58.122346	2025-12-02 00:10:58.122348
+菜单管理	2	1	module_system:menu:query	menu	Menu	/system/menu	module_system/menu/index	\N	f	t	f	菜单管理	null	f	2	9	36746cf6-bb0a-4ce1-b8c9-386d3404f80d	0	初始化数据	2025-12-02 00:10:58.122352	2025-12-02 00:10:58.122353
+部门管理	2	2	module_system:dept:query	tree	Dept	/system/dept	module_system/dept/index	\N	f	t	f	部门管理	null	f	2	10	6f96f0d8-548d-48f9-9a29-ceb97470b85c	0	初始化数据	2025-12-02 00:10:58.122356	2025-12-02 00:10:58.122356
+岗位管理	2	3	module_system:position:query	el-icon-Coordinate	Position	/system/position	module_system/position/index	\N	f	t	f	岗位管理	null	f	2	11	b51194bc-0c5e-46ed-8134-f0c47be98e4c	0	初始化数据	2025-12-02 00:10:58.122359	2025-12-02 00:10:58.12236
+角色管理	2	4	module_system:role:query	role	Role	/system/role	module_system/role/index	\N	f	t	f	角色管理	null	f	2	12	1aee0449-7d04-4922-99a4-cee928f4561a	0	初始化数据	2025-12-02 00:10:58.122363	2025-12-02 00:10:58.122363
+用户管理	2	5	module_system:user:query	el-icon-User	User	/system/user	module_system/user/index	\N	f	t	f	用户管理	null	f	2	13	bea3fe1c-9c42-40a1-bd6a-4f40f9fffffd	0	初始化数据	2025-12-02 00:10:58.122366	2025-12-02 00:10:58.122366
+日志管理	2	6	module_system:log:query	el-icon-Aim	Log	/system/log	module_system/log/index	\N	f	t	f	日志管理	null	f	2	14	ba93e339-137c-4510-b37e-e7ba7300fd57	0	初始化数据	2025-12-02 00:10:58.122369	2025-12-02 00:10:58.122369
+公告管理	2	7	module_system:notice:query	bell	Notice	/system/notice	module_system/notice/index	\N	f	t	f	公告管理	null	f	2	15	5818fefa-a4f2-41e9-bba9-d52c8a555821	0	初始化数据	2025-12-02 00:10:58.122372	2025-12-02 00:10:58.122373
+参数管理	2	8	module_system:param:query	setting	Params	/system/param	module_system/param/index	\N	f	t	f	参数管理	null	f	2	16	658b66a0-0af1-4a07-a461-0e5a35ff0941	0	初始化数据	2025-12-02 00:10:58.122376	2025-12-02 00:10:58.122376
+字典管理	2	9	module_system:dict_type:query	dict	Dict	/system/dict	module_system/dict/index	\N	f	t	f	字典管理	null	f	2	17	0f683d4e-dada-4236-9c12-5e1c5401d651	0	初始化数据	2025-12-02 00:10:58.122379	2025-12-02 00:10:58.122379
+我的应用	2	1	module_application:myapp:query	el-icon-ShoppingCartFull	MYAPP	/application/myapp	module_application/myapp/index	\N	f	t	f	我的应用	null	f	3	18	e1e1a6fa-26c5-4429-989b-a207261ba345	0	初始化数据	2025-12-02 00:10:58.122382	2025-12-02 00:10:58.122383
+任务管理	2	2	module_application:job:query	el-icon-DataLine	Job	/application/job	module_application/job/index	\N	f	t	f	任务管理	null	f	3	19	aacd5516-28e4-4414-ab07-7a3e4edc6fe0	0	初始化数据	2025-12-02 00:10:58.122385	2025-12-02 00:10:58.122386
+AI智能助手	2	3	module_application:ai:chat	el-icon-ToiletPaper	AI	/application/ai	module_application/ai/index	\N	f	t	f	AI智能助手	null	f	3	20	865d6c01-7083-476e-9feb-c8a78ba84118	0	AI智能助手	2025-12-02 00:10:58.122389	2025-12-02 00:10:58.122389
+流程管理	2	4	module_application:workflow:query	el-icon-ShoppingBag	Workflow	/application/workflow	module_application/workflow/index	\N	f	t	f	我的流程	null	f	3	21	856e1948-fe46-4dc8-98c4-99d02f19e461	0	我的流程	2025-12-02 00:10:58.122392	2025-12-02 00:10:58.122392
+在线用户	2	1	module_monitor:online:query	el-icon-Headset	MonitorOnline	/monitor/online	module_monitor/online/index	\N	f	f	f	在线用户	null	f	4	22	c6d177f4-099f-4c54-b4ce-c5223aadcafe	0	初始化数据	2025-12-02 00:10:58.122395	2025-12-02 00:10:58.122395
+服务器监控	2	2	module_monitor:server:query	el-icon-Odometer	MonitorServer	/monitor/server	module_monitor/server/index	\N	f	f	f	服务器监控	null	f	4	23	119bf1f4-1f2a-4f45-8025-8ce3989501b9	0	初始化数据	2025-12-02 00:10:58.122398	2025-12-02 00:10:58.122398
+缓存监控	2	3	module_monitor:cache:query	el-icon-Stopwatch	MonitorCache	/monitor/cache	module_monitor/cache/index	\N	f	f	f	缓存监控	null	f	4	24	56035c50-0722-4e51-8832-33b5e793dea3	0	初始化数据	2025-12-02 00:10:58.122401	2025-12-02 00:10:58.122401
+文件管理	2	4	module_monitor:resource:query	el-icon-Files	Resource	/monitor/resource	module_monitor/resource/index	\N	f	t	f	文件管理	null	f	4	25	bd2f06e1-64ef-4740-be72-591b35e83704	0	初始化数据	2025-12-02 00:10:58.122404	2025-12-02 00:10:58.122405
+代码生成	2	1	module_generator:gencode:query	code	Backcode	/gencode/backcode	module_generator/backcode/index	\N	f	t	f	代码生成	null	f	5	26	411a28e9-2d06-467d-aaa3-de68eb45f340	0	代码生成	2025-12-02 00:10:58.122407	2025-12-02 00:10:58.122408
+Swagger文档	4	1	module_common:docs:query	api	Docs	/common/docs	module_common/docs/index	\N	f	f	f	Swagger文档	null	f	6	27	ab231922-ea1f-4a0a-8c5e-372408170546	0	初始化数据	2025-12-02 00:10:58.12241	2025-12-02 00:10:58.122411
+Redoc文档	4	2	module_common:redoc:query	el-icon-Document	Redoc	/common/redoc	module_common/redoc/index	\N	f	f	f	Redoc文档	null	f	6	28	c4eb75ca-6fbb-41a7-abfb-06b58587f752	0	初始化数据	2025-12-02 00:10:58.122414	2025-12-02 00:10:58.122414
+示例管理	2	1	module_example:demo:query	el-icon-ElementPlus	Demo	/example/demo	module_example/demo/index	\N	f	t	f	示例管理	null	f	7	29	d0149159-f352-4fa6-8ccf-dd59acbbb269	0	示例管理	2025-12-02 00:10:58.122417	2025-12-02 00:10:58.122417
+创建菜单	3	1	module_system:menu:create	\N	\N	\N	\N	\N	f	t	f	创建菜单	null	f	9	30	f968fc88-eb0f-4382-8677-a7c8c8976d78	0	初始化数据	2025-12-02 00:10:58.125854	2025-12-02 00:10:58.125856
+修改菜单	3	2	module_system:menu:update	\N	\N	\N	\N	\N	f	t	f	修改菜单	null	f	9	31	b4d24f90-9e26-44f6-97ce-821ba2353aba	0	初始化数据	2025-12-02 00:10:58.12586	2025-12-02 00:10:58.12586
+删除菜单	3	3	module_system:menu:delete	\N	\N	\N	\N	\N	f	t	f	删除菜单	null	f	9	32	9c0e9a0e-016f-47f0-81c4-0136ca4febc3	0	初始化数据	2025-12-02 00:10:58.125863	2025-12-02 00:10:58.125863
+批量修改菜单状态	3	4	module_system:menu:patch	\N	\N	\N	\N	\N	f	t	f	批量修改菜单状态	null	f	9	33	fb3d0d90-f71b-44c7-a11d-e9f64afe0d23	0	初始化数据	2025-12-02 00:10:58.125866	2025-12-02 00:10:58.125866
+创建部门	3	1	module_system:dept:create	\N	\N	\N	\N	\N	f	t	f	创建部门	null	f	10	34	3df7afab-36f4-4567-a270-fa425c0c847b	0	初始化数据	2025-12-02 00:10:58.125869	2025-12-02 00:10:58.125869
+修改部门	3	2	module_system:dept:update	\N	\N	\N	\N	\N	f	t	f	修改部门	null	f	10	35	4c46835a-6676-46c2-85e1-08df52ab278e	0	初始化数据	2025-12-02 00:10:58.125872	2025-12-02 00:10:58.125872
+删除部门	3	3	module_system:dept:delete	\N	\N	\N	\N	\N	f	t	f	删除部门	null	f	10	36	a70a0fae-2d5c-44a2-b685-fdd5b5e4d0ae	0	初始化数据	2025-12-02 00:10:58.125875	2025-12-02 00:10:58.125875
+批量修改部门状态	3	4	module_system:dept:patch	\N	\N	\N	\N	\N	f	t	f	批量修改部门状态	null	f	10	37	e9a58afb-d818-4c27-94b1-2b36c285e49e	0	初始化数据	2025-12-02 00:10:58.125878	2025-12-02 00:10:58.125878
+创建岗位	3	1	module_system:position:create	\N	\N	\N	\N	\N	f	t	f	创建岗位	null	f	11	38	83e65b1a-5142-44d0-976a-08615bce0363	0	初始化数据	2025-12-02 00:10:58.125881	2025-12-02 00:10:58.125881
+修改岗位	3	2	module_system:position:update	\N	\N	\N	\N	\N	f	t	f	修改岗位	null	f	11	39	f7fd368f-8551-4034-997a-170bccd05a6d	0	初始化数据	2025-12-02 00:10:58.125884	2025-12-02 00:10:58.125884
+删除岗位	3	3	module_system:position:delete	\N	\N	\N	\N	\N	f	t	f	修改岗位	null	f	11	40	0922bd4f-6490-4c0f-ab8e-6efd5ce9e582	0	初始化数据	2025-12-02 00:10:58.125887	2025-12-02 00:10:58.125887
+批量修改岗位状态	3	4	module_system:position:patch	\N	\N	\N	\N	\N	f	t	f	批量修改岗位状态	null	f	11	41	fd063b58-2ded-4eec-8ff8-0653ef4826cf	0	初始化数据	2025-12-02 00:10:58.12589	2025-12-02 00:10:58.125891
+岗位导出	3	5	module_system:position:export	\N	\N	\N	\N	\N	f	t	f	岗位导出	null	f	11	42	8673108a-1c8c-432e-a5b2-4bc7e21bdeea	0	初始化数据	2025-12-02 00:10:58.125893	2025-12-02 00:10:58.125894
+设置角色权限	3	8	module_system:role:permission	\N	\N	\N	\N	\N	f	t	f	设置角色权限	null	f	11	43	131af7a4-d216-4052-af20-1df5f5e1913a	0	初始化数据	2025-12-02 00:10:58.125896	2025-12-02 00:10:58.125896
+创建角色	3	1	module_system:role:create	\N	\N	\N	\N	\N	f	t	f	创建角色	null	f	12	44	ff8b03b8-76a3-4700-b955-44be52ba68d1	0	初始化数据	2025-12-02 00:10:58.125899	2025-12-02 00:10:58.125899
+修改角色	3	2	module_system:role:update	\N	\N	\N	\N	\N	f	t	f	修改角色	null	f	12	45	a6653e8f-c831-43ec-b9bc-1907dfe7bfb0	0	初始化数据	2025-12-02 00:10:58.125902	2025-12-02 00:10:58.125902
+删除角色	3	3	module_system:role:delete	\N	\N	\N	\N	\N	f	t	f	删除角色	null	f	12	46	150d3251-7816-4d68-b8fd-485a02a5526f	0	初始化数据	2025-12-02 00:10:58.125905	2025-12-02 00:10:58.125905
+批量修改角色状态	3	4	module_system:role:patch	\N	\N	\N	\N	\N	f	t	f	批量修改角色状态	null	f	12	47	5793612d-88d4-49a6-b271-5c1783d23bf0	0	初始化数据	2025-12-02 00:10:58.125908	2025-12-02 00:10:58.125908
+角色导出	3	6	module_system:role:export	\N	\N	\N	\N	\N	f	t	f	角色导出	null	f	12	48	756e3ec6-0963-4c18-8a79-3e68468bf800	0	初始化数据	2025-12-02 00:10:58.125911	2025-12-02 00:10:58.125911
+创建用户	3	1	module_system:user:create	\N	\N	\N	\N	\N	f	t	f	创建用户	null	f	13	49	041d813c-de7c-4f3c-8a8a-379ed054d188	0	初始化数据	2025-12-02 00:10:58.125914	2025-12-02 00:10:58.125914
+修改用户	3	2	module_system:user:update	\N	\N	\N	\N	\N	f	t	f	修改用户	null	f	13	50	ea002679-63f4-47eb-8154-9c9cde4268aa	0	初始化数据	2025-12-02 00:10:58.125917	2025-12-02 00:10:58.125917
+删除用户	3	3	module_system:user:delete	\N	\N	\N	\N	\N	f	t	f	删除用户	null	f	13	51	27a83a22-6949-4fcd-8dd4-eebb61fa8914	0	初始化数据	2025-12-02 00:10:58.12592	2025-12-02 00:10:58.12592
+批量修改用户状态	3	4	module_system:user:patch	\N	\N	\N	\N	\N	f	t	f	批量修改用户状态	null	f	13	52	1dbf1e66-1886-47bc-a6f0-ebfa3906c9b3	0	初始化数据	2025-12-02 00:10:58.125923	2025-12-02 00:10:58.125923
+导出用户	3	5	module_system:user:export	\N	\N	\N	\N	\N	f	t	f	导出用户	null	f	13	53	20150d61-28e3-48db-8097-c6c7ec270c82	0	初始化数据	2025-12-02 00:10:58.125925	2025-12-02 00:10:58.125926
+导入用户	3	6	module_system:user:import	\N	\N	\N	\N	\N	f	t	f	导入用户	null	f	13	54	35c5f855-ae0a-4753-ae01-8b16a074dd74	0	初始化数据	2025-12-02 00:10:58.125928	2025-12-02 00:10:58.125929
+日志删除	3	1	module_system:log:delete	\N	\N	\N	\N	\N	f	t	f	日志删除	null	f	14	55	e60b473f-b291-4e0e-8696-b3c8a532bc69	0	初始化数据	2025-12-02 00:10:58.125931	2025-12-02 00:10:58.125932
+日志导出	3	2	module_system:log:export	\N	\N	\N	\N	\N	f	t	f	日志导出	null	f	14	56	dc541e39-90cb-41f8-8951-a00e9aed1d5c	0	初始化数据	2025-12-02 00:10:58.125934	2025-12-02 00:10:58.125935
+公告创建	3	1	module_system:notice:create	\N	\N	\N	\N	\N	f	t	f	公告创建	null	f	15	57	d162a9f5-f058-4513-bcfd-4e34cd0c9395	0	初始化数据	2025-12-02 00:10:58.125937	2025-12-02 00:10:58.125937
+公告修改	3	2	module_system:notice:update	\N	\N	\N	\N	\N	f	t	f	修改用户	null	f	15	58	5ec4e12d-f2a5-4d3a-8d3d-df9bff9a10af	0	初始化数据	2025-12-02 00:10:58.12594	2025-12-02 00:10:58.12594
+公告删除	3	3	module_system:notice:delete	\N	\N	\N	\N	\N	f	t	f	公告删除	null	f	15	59	875425c6-10e1-49dc-8f11-996d4d3dbbc1	0	初始化数据	2025-12-02 00:10:58.125943	2025-12-02 00:10:58.125943
+公告导出	3	4	module_system:notice:export	\N	\N	\N	\N	\N	f	t	f	公告导出	null	f	15	60	02ef0673-d3aa-4ed6-99fb-353f4af409d5	0	初始化数据	2025-12-02 00:10:58.125946	2025-12-02 00:10:58.125946
+公告批量修改状态	3	5	module_system:notice:patch	\N	\N	\N	\N	\N	f	t	f	公告批量修改状态	null	f	15	61	9bbc4bc9-5da1-4d5a-9a15-8b13a1a48fd4	0	初始化数据	2025-12-02 00:10:58.125948	2025-12-02 00:10:58.125949
+创建参数	3	1	module_system:param:create	\N	\N	\N	\N	\N	f	t	f	创建参数	null	f	16	62	32a70dd6-b391-4699-9453-3517b83fe589	0	初始化数据	2025-12-02 00:10:58.125951	2025-12-02 00:10:58.125952
+修改参数	3	2	module_system:param:update	\N	\N	\N	\N	\N	f	t	f	修改参数	null	f	16	63	61dd01f7-80ac-4b9a-a071-273b9e88905b	0	初始化数据	2025-12-02 00:10:58.125954	2025-12-02 00:10:58.125954
+删除参数	3	3	module_system:param:delete	\N	\N	\N	\N	\N	f	t	f	删除参数	null	f	16	64	61912b25-4558-405c-9f64-1ad57d25d9c0	0	初始化数据	2025-12-02 00:10:58.125959	2025-12-02 00:10:58.125959
+导出参数	3	4	module_system:param:export	\N	\N	\N	\N	\N	f	t	f	导出参数	null	f	16	65	67ceadab-97b7-410d-8c53-f3deb9a34174	0	初始化数据	2025-12-02 00:10:58.125962	2025-12-02 00:10:58.125962
+参数上传	3	5	module_system:param:upload	\N	\N	\N	\N	\N	f	t	f	参数上传	null	f	16	66	aabbd079-575d-48da-b381-c94a92d70813	0	初始化数据	2025-12-02 00:10:58.125965	2025-12-02 00:10:58.125965
+创建字典类型	3	1	module_system:dict_type:create	\N	\N	\N	\N	\N	f	t	f	创建字典类型	null	f	17	67	5fce62e2-d046-4c52-ae1b-6ccfac03798a	0	初始化数据	2025-12-02 00:10:58.125968	2025-12-02 00:10:58.125968
+修改字典类型	3	2	module_system:dict_type:update	\N	\N	\N	\N	\N	f	t	f	修改字典类型	null	f	17	68	96342e8c-f8b7-4a93-9865-84c9b32de838	0	初始化数据	2025-12-02 00:10:58.125971	2025-12-02 00:10:58.125971
+删除字典类型	3	3	module_system:dict_type:delete	\N	\N	\N	\N	\N	f	t	f	删除字典类型	null	f	17	69	f386ff74-8481-4d42-816d-379eec9c23a0	0	初始化数据	2025-12-02 00:10:58.125974	2025-12-02 00:10:58.125974
+导出字典类型	3	4	module_system:dict_type:export	\N	\N	\N	\N	\N	f	t	f	导出字典类型	null	f	17	70	77f80098-78e7-419a-be2f-d054d8bcf423	0	初始化数据	2025-12-02 00:10:58.125977	2025-12-02 00:10:58.125977
+批量修改字典状态	3	5	module_system:dict_type:patch	\N	\N	\N	\N	\N	f	t	f	导出字典类型	null	f	17	71	e7d328cb-6972-4ac9-befc-bda8c943143c	0	初始化数据	2025-12-02 00:10:58.12598	2025-12-02 00:10:58.12598
+字典数据查询	3	6	module_system:dict_data:query	\N	\N	\N	\N	\N	f	t	f	字典数据查询	null	f	17	72	3eeffaa7-9745-4493-a625-1f1af26da0a0	0	初始化数据	2025-12-02 00:10:58.125983	2025-12-02 00:10:58.125983
+创建字典数据	3	7	module_system:dict_data:create	\N	\N	\N	\N	\N	f	t	f	创建字典数据	null	f	17	73	6a55fc25-e357-4f64-8edd-ac8d0856b7f4	0	初始化数据	2025-12-02 00:10:58.125985	2025-12-02 00:10:58.125986
+修改字典数据	3	8	module_system:dict_data:update	\N	\N	\N	\N	\N	f	t	f	修改字典数据	null	f	17	74	018bccf1-4316-4839-9938-23599effa017	0	初始化数据	2025-12-02 00:10:58.125988	2025-12-02 00:10:58.125989
+删除字典数据	3	9	module_system:dict_data:delete	\N	\N	\N	\N	\N	f	t	f	删除字典数据	null	f	17	75	ad572657-9a3a-4fcc-a756-0ce8049939b0	0	初始化数据	2025-12-02 00:10:58.125991	2025-12-02 00:10:58.125992
+导出字典数据	3	10	module_system:dict_data:export	\N	\N	\N	\N	\N	f	t	f	导出字典数据	null	f	17	76	40e5314d-532b-483f-96a4-d55fa1162699	0	初始化数据	2025-12-02 00:10:58.125994	2025-12-02 00:10:58.125994
+批量修改字典数据状态	3	11	module_system:dict_data:patch	\N	\N	\N	\N	\N	f	t	f	批量修改字典数据状态	null	f	17	77	dfd8e9f9-ba7f-41a4-ac03-b9b12c57af7f	0	初始化数据	2025-12-02 00:10:58.125997	2025-12-02 00:10:58.125997
+创建应用	3	1	module_application:myapp:create	\N	\N	\N	\N	\N	f	t	f	创建应用	null	f	18	78	df0c76de-f2d5-4faf-aa41-db9d886392ad	0	初始化数据	2025-12-02 00:10:58.126	2025-12-02 00:10:58.126
+修改应用	3	2	module_application:myapp:update	\N	\N	\N	\N	\N	f	t	f	修改应用	null	f	18	79	6c10c65b-d0ce-450d-a884-c7286ee9acfb	0	初始化数据	2025-12-02 00:10:58.126002	2025-12-02 00:10:58.126003
+删除应用	3	3	module_application:myapp:delete	\N	\N	\N	\N	\N	f	t	f	删除应用	null	f	18	80	064d409a-49de-44b2-84d1-d59dde715414	0	初始化数据	2025-12-02 00:10:58.126005	2025-12-02 00:10:58.126006
+批量修改应用状态	3	4	module_application:myapp:patch	\N	\N	\N	\N	\N	f	t	f	批量修改应用状态	null	f	18	81	2200c2f4-c888-440f-a37f-17c850267ed7	0	初始化数据	2025-12-02 00:10:58.126008	2025-12-02 00:10:58.126009
+创建任务	3	1	module_application:job:create	\N	\N	\N	\N	\N	f	t	f	创建任务	null	f	19	82	0df21b6e-c5f5-4ddf-9187-2a8326c40314	0	初始化数据	2025-12-02 00:10:58.126011	2025-12-02 00:10:58.126012
+修改和操作任务	3	2	module_application:job:update	\N	\N	\N	\N	\N	f	t	f	修改和操作任务	null	f	19	83	71d7a233-5e08-4bda-8930-9151834fc592	0	初始化数据	2025-12-02 00:10:58.126014	2025-12-02 00:10:58.126015
+删除和清除任务	3	3	module_application:job:delete	\N	\N	\N	\N	\N	f	t	f	删除和清除任务	null	f	19	84	ded607be-6662-4a96-8c30-2ac2f659edd8	0	初始化数据	2025-12-02 00:10:58.126017	2025-12-02 00:10:58.126017
+导出定时任务	3	4	module_application:job:export	\N	\N	\N	\N	\N	f	t	f	导出定时任务	null	f	19	85	491f43e0-2b3c-4d2d-a58a-e9a3b36c1f3c	0	初始化数据	2025-12-02 00:10:58.12602	2025-12-02 00:10:58.12602
+智能对话	3	1	module_application:ai:chat	\N	\N	\N	\N	\N	f	t	f	智能对话	null	f	20	86	371a3c06-b015-4cbd-a9b6-3cbf3a879024	0	智能对话	2025-12-02 00:10:58.126023	2025-12-02 00:10:58.126023
+在线用户强制下线	3	1	module_monitor:online:delete	\N	\N	\N	\N	\N	f	f	f	在线用户强制下线	null	f	22	87	9985c1b6-14bc-4a38-8524-f94fae872f22	0	初始化数据	2025-12-02 00:10:58.126026	2025-12-02 00:10:58.126026
+清除缓存	3	1	module_monitor:cache:delete	\N	\N	\N	\N	\N	f	f	f	清除缓存	null	f	24	88	c9ed87b5-3293-460f-89f0-eb3ccbe943ce	0	初始化数据	2025-12-02 00:10:58.126029	2025-12-02 00:10:58.126029
+文件上传	3	1	module_monitor:resource:upload	\N	\N	\N	\N	\N	f	t	f	文件上传	null	f	25	89	1b73e36a-98fe-44b1-b7a8-a0e4947d781e	0	初始化数据	2025-12-02 00:10:58.126031	2025-12-02 00:10:58.126032
+文件下载	3	2	module_monitor:resource:download	\N	\N	\N	\N	\N	f	t	f	文件下载	null	f	25	90	72904dbd-d1f9-4c29-b100-4bcbb637cb44	0	初始化数据	2025-12-02 00:10:58.126034	2025-12-02 00:10:58.126035
+文件删除	3	3	module_monitor:resource:delete	\N	\N	\N	\N	\N	f	t	f	文件删除	null	f	25	91	daa925ed-ba30-4547-82f9-a4f2fd24aaf9	0	初始化数据	2025-12-02 00:10:58.126037	2025-12-02 00:10:58.126038
+文件移动	3	4	module_monitor:resource:move	\N	\N	\N	\N	\N	f	t	f	文件移动	null	f	25	92	e8d7c7d3-ea13-4c03-b308-d73bb8744686	0	初始化数据	2025-12-02 00:10:58.12604	2025-12-02 00:10:58.12604
+文件复制	3	5	module_monitor:resource:copy	\N	\N	\N	\N	\N	f	t	f	文件复制	null	f	25	93	eaedbc5f-ab49-4102-bab8-67002a99459a	0	初始化数据	2025-12-02 00:10:58.126043	2025-12-02 00:10:58.126043
+文件重命名	3	6	module_monitor:resource:rename	\N	\N	\N	\N	\N	f	t	f	文件重命名	null	f	25	94	f84e9613-d1e9-4794-8c97-2d97a1595c7d	0	初始化数据	2025-12-02 00:10:58.126046	2025-12-02 00:10:58.126046
+创建目录	3	7	module_monitor:resource:create_dir	\N	\N	\N	\N	\N	f	t	f	创建目录	null	f	25	95	9998b88b-6371-49c7-8bc2-dc6bad0efa20	0	初始化数据	2025-12-02 00:10:58.126049	2025-12-02 00:10:58.126049
+导出文件列表	3	9	module_monitor:resource:export	\N	\N	\N	\N	\N	f	t	f	导出文件列表	null	f	25	96	bda845e0-3b87-484d-ab52-731b11f65c9c	0	初始化数据	2025-12-02 00:10:58.126051	2025-12-02 00:10:58.126052
+查询代码生成业务表列表	3	1	module_generator:gencode:query	\N	\N	\N	\N	\N	f	t	f	查询代码生成业务表列表	null	f	26	97	c70d210b-f6e4-48c4-9c6b-3055f376599c	0	查询代码生成业务表列表	2025-12-02 00:10:58.126054	2025-12-02 00:10:58.126055
+创建表结构	3	2	module_generator:gencode:create	\N	\N	\N	\N	\N	f	t	f	创建表结构	null	f	26	98	b4944990-2c53-4c33-9179-b1daf49e2a9f	0	创建表结构	2025-12-02 00:10:58.126057	2025-12-02 00:10:58.126058
+编辑业务表信息	3	3	module_generator:gencode:update	\N	\N	\N	\N	\N	f	t	f	编辑业务表信息	null	f	26	99	1c14e76d-2a75-49ff-b2e5-a4d891f01953	0	编辑业务表信息	2025-12-02 00:10:58.12606	2025-12-02 00:10:58.12606
+删除业务表信息	3	4	module_generator:gencode:delete	\N	\N	\N	\N	\N	f	t	f	删除业务表信息	null	f	26	100	4a69869e-b8c1-402a-a9e7-95aa16bd7d8a	0	删除业务表信息	2025-12-02 00:10:58.126063	2025-12-02 00:10:58.126063
+导入表结构	3	5	module_generator:gencode:import	\N	\N	\N	\N	\N	f	t	f	导入表结构	null	f	26	101	4977a4ba-3cc8-4dc9-8433-89e63f777853	0	导入表结构	2025-12-02 00:10:58.126066	2025-12-02 00:10:58.126066
+批量生成代码	3	6	module_generator:gencode:operate	\N	\N	\N	\N	\N	f	t	f	批量生成代码	null	f	26	102	1cf5870c-4924-4a28-b865-d72c1825fe2f	0	批量生成代码	2025-12-02 00:10:58.126069	2025-12-02 00:10:58.126069
+生成代码到指定路径	3	7	module_generator:gencode:code	\N	\N	\N	\N	\N	f	t	f	生成代码到指定路径	null	f	26	103	94f45ffe-ece4-414a-b6bf-c04cb533c1d5	0	生成代码到指定路径	2025-12-02 00:10:58.126071	2025-12-02 00:10:58.126072
+查询数据库表列表	3	8	module_generator:dblist:query	\N	\N	\N	\N	\N	f	t	f	查询数据库表列表	null	f	26	104	1227860e-8770-43af-8724-6a0e2859e5ab	0	查询数据库表列表	2025-12-02 00:10:58.126074	2025-12-02 00:10:58.126075
+同步数据库	3	9	module_generator:db:sync	\N	\N	\N	\N	\N	f	t	f	同步数据库	null	f	26	105	75341aa0-48ed-4a35-aaa9-a21e729fd4a7	0	同步数据库	2025-12-02 00:10:58.126077	2025-12-02 00:10:58.126077
+创建示例	3	1	module_example:demo:create	\N	\N	\N	\N	\N	f	t	f	创建示例	null	f	29	106	ecc35c4a-1673-4d21-94cc-308b862eba92	0	初始化数据	2025-12-02 00:10:58.12608	2025-12-02 00:10:58.12608
+更新示例	3	2	module_example:demo:update	\N	\N	\N	\N	\N	f	t	f	更新示例	null	f	29	107	02c6b5df-3e2c-4ffe-8844-4f945f0f29ff	0	初始化数据	2025-12-02 00:10:58.126083	2025-12-02 00:10:58.126083
+删除示例	3	3	module_example:demo:delete	\N	\N	\N	\N	\N	f	t	f	删除示例	null	f	29	108	ed8a64f3-a2d9-4e4c-81d0-5b98bc1e3d02	0	初始化数据	2025-12-02 00:10:58.126086	2025-12-02 00:10:58.126086
+批量修改示例状态	3	4	module_example:demo:patch	\N	\N	\N	\N	\N	f	t	f	批量修改示例状态	null	f	29	109	c5852055-688d-4a40-9e18-e5cd04f95969	0	初始化数据	2025-12-02 00:10:58.126088	2025-12-02 00:10:58.126089
+导出示例	3	5	module_example:demo:export	\N	\N	\N	\N	\N	f	t	f	导出示例	null	f	29	110	9b7a261c-e5a7-4641-b3ec-897ce3084ef1	0	初始化数据	2025-12-02 00:10:58.126091	2025-12-02 00:10:58.126092
+导入示例	3	6	module_example:demo:import	\N	\N	\N	\N	\N	f	t	f	导入示例	null	f	29	111	ad103806-15fc-40c3-b785-437c8d31e74f	0	初始化数据	2025-12-02 00:10:58.126094	2025-12-02 00:10:58.126095
+下载导入示例模版	3	7	module_example:demo:download	\N	\N	\N	\N	\N	f	t	f	下载导入示例模版	null	f	29	112	33899ea0-edbb-4e46-8aef-3a68825b8342	0	初始化数据	2025-12-02 00:10:58.126097	2025-12-02 00:10:58.126098
 \.
 
 
@@ -3681,7 +3269,7 @@ Redoc文档	4	2	module_common:redoc:query	el-icon-Document	Redoc	/common/redoc	m
 -- Data for Name: sys_notice; Type: TABLE DATA; Schema: public; Owner: tao
 --
 
-COPY public.sys_notice (notice_title, notice_type, notice_content, id, uuid, status, description, created_time, updated_time, created_id, updated_id, tenant_id, customer_id) FROM stdin;
+COPY public.sys_notice (notice_title, notice_type, notice_content, id, uuid, status, description, created_time, updated_time, created_id, updated_id) FROM stdin;
 \.
 
 
@@ -3690,22 +3278,22 @@ COPY public.sys_notice (notice_title, notice_type, notice_content, id, uuid, sta
 --
 
 COPY public.sys_param (config_name, config_key, config_value, config_type, id, uuid, status, description, created_time, updated_time) FROM stdin;
-网站名称	sys_web_title	FastApiAdmin	t	1	cdfdad6b-ec1d-44ad-b09c-1dcebc003a96	0	初始化数据	2025-11-29 14:16:23.950135	2025-11-29 14:16:23.950136
-网站描述	sys_web_description	FastApiAdmin 是完全开源的权限管理系统	t	2	b9d128e8-63ad-49a2-9c59-8f50d1548da6	0	初始化数据	2025-11-29 14:16:23.95014	2025-11-29 14:16:23.95014
-网页图标	sys_web_favicon	https://service.fastapiadmin.com/api/v1/static/image/favicon.png	t	3	2645fcf9-2dbb-43aa-9f85-0643acdde4cf	0	初始化数据	2025-11-29 14:16:23.950143	2025-11-29 14:16:23.950143
-网站Logo	sys_web_logo	https://service.fastapiadmin.com/api/v1/static/image/logo.png	t	4	5bedbe5e-32f5-44c9-a5ed-09091bf321f5	0	初始化数据	2025-11-29 14:16:23.950146	2025-11-29 14:16:23.950147
-登录背景	sys_login_background	https://service.fastapiadmin.com/api/v1/static/image/background.svg	t	5	a062fe42-cb98-4a9f-920d-a23c7404e4ed	0	初始化数据	2025-11-29 14:16:23.950149	2025-11-29 14:16:23.95015
-版权信息	sys_web_copyright	Copyright © 2025-2026 service.fastapiadmin.com 版权所有	t	6	6f78be4d-eac3-41cd-a1af-69a02a794a3a	0	初始化数据	2025-11-29 14:16:23.950153	2025-11-29 14:16:23.950153
-备案信息	sys_keep_record	陕ICP备2025069493号-1	t	7	8b0486a6-187a-4657-958f-bf1853346725	0	初始化数据	2025-11-29 14:16:23.950156	2025-11-29 14:16:23.950156
-帮助文档	sys_help_doc	https://service.fastapiadmin.com	t	8	80c05cef-3352-40a6-8518-8fbff71f1641	0	初始化数据	2025-11-29 14:16:23.950159	2025-11-29 14:16:23.950159
-隐私政策	sys_web_privacy	https://github.com/1014TaoTao/FastapiAdmin/blob/master/LICENSE	t	9	fe3d3fc7-d2a3-413e-bb65-b01a7b85e0c1	0	初始化数据	2025-11-29 14:16:23.950162	2025-11-29 14:16:23.950162
-用户协议	sys_web_clause	https://github.com/1014TaoTao/FastapiAdmin/blob/master/LICENSE	t	10	ecb86a40-22cd-4567-99e9-53abcb12760e	0	初始化数据	2025-11-29 14:16:23.950165	2025-11-29 14:16:23.950165
-源码代码	sys_git_code	https://github.com/1014TaoTao/FastapiAdmin.git	t	11	911216d4-7cde-474a-88ae-c3f65d7bf42a	0	初始化数据	2025-11-29 14:16:23.950168	2025-11-29 14:16:23.950168
-项目版本	sys_web_version	2.0.0	t	12	73ad1b65-0487-41f5-a33d-b0c9ff51f94e	0	初始化数据	2025-11-29 14:16:23.950171	2025-11-29 14:16:23.950171
-演示模式启用	demo_enable	false	t	13	e86b013b-9fba-4ce8-8954-444b741579fa	0	初始化数据	2025-11-29 14:16:23.950174	2025-11-29 14:16:23.950174
-演示访问IP白名单	ip_white_list	["127.0.0.1"]	t	14	98b572b6-b184-4a4c-bac7-74315e3dd5b8	0	初始化数据	2025-11-29 14:16:23.950177	2025-11-29 14:16:23.950177
-接口白名单	white_api_list_path	["/api/v1/system/auth/login", "/api/v1/system/auth/token/refresh", "/api/v1/system/auth/captcha/get", "/api/v1/system/auth/logout", "/api/v1/system/config/info", "/api/v1/system/user/current/info", "/api/v1/system/notice/available"]	t	15	82aa8aec-72d1-412a-b676-e1336c3174a1	0	初始化数据	2025-11-29 14:16:23.95018	2025-11-29 14:16:23.95018
-访问IP黑名单	ip_black_list	[]	t	16	72e0e2e2-3e0f-4059-b5bf-2925d543e060	0	初始化数据	2025-11-29 14:16:23.950183	2025-11-29 14:16:23.950183
+网站名称	sys_web_title	FastApiAdmin	t	1	ddc13861-7c06-44c0-b6f2-24423a266719	0	初始化数据	2025-12-02 00:10:58.132705	2025-12-02 00:10:58.132706
+网站描述	sys_web_description	FastApiAdmin 是完全开源的权限管理系统	t	2	28ee63ba-ecc3-4a58-89d0-76a743b60a34	0	初始化数据	2025-12-02 00:10:58.13271	2025-12-02 00:10:58.13271
+网页图标	sys_web_favicon	https://service.fastapiadmin.com/api/v1/static/image/favicon.png	t	3	4bd9b129-2e2d-46bf-b06f-ca9ad93e4a91	0	初始化数据	2025-12-02 00:10:58.132713	2025-12-02 00:10:58.132714
+网站Logo	sys_web_logo	https://service.fastapiadmin.com/api/v1/static/image/logo.png	t	4	be0557fd-ec35-42d3-93ed-d299b5a3f186	0	初始化数据	2025-12-02 00:10:58.132717	2025-12-02 00:10:58.132717
+登录背景	sys_login_background	https://service.fastapiadmin.com/api/v1/static/image/background.svg	t	5	f4114777-a4de-42e1-beb3-7ddbc3f83528	0	初始化数据	2025-12-02 00:10:58.13272	2025-12-02 00:10:58.13272
+版权信息	sys_web_copyright	Copyright © 2025-2026 service.fastapiadmin.com 版权所有	t	6	a2a5a46b-2a2d-4a3b-ab44-77b27a7cf62e	0	初始化数据	2025-12-02 00:10:58.132723	2025-12-02 00:10:58.132723
+备案信息	sys_keep_record	陕ICP备2025069493号-1	t	7	f28e23de-bbec-45c8-9544-a0fa76473460	0	初始化数据	2025-12-02 00:10:58.132726	2025-12-02 00:10:58.132726
+帮助文档	sys_help_doc	https://service.fastapiadmin.com	t	8	bc057721-60e0-4d5a-9bb7-31f6d5d50eea	0	初始化数据	2025-12-02 00:10:58.132729	2025-12-02 00:10:58.132729
+隐私政策	sys_web_privacy	https://github.com/1014TaoTao/FastapiAdmin/blob/master/LICENSE	t	9	da8edb44-bc59-452b-96fa-8a5b99176cfe	0	初始化数据	2025-12-02 00:10:58.132732	2025-12-02 00:10:58.132732
+用户协议	sys_web_clause	https://github.com/1014TaoTao/FastapiAdmin/blob/master/LICENSE	t	10	7c7624c3-4208-473e-9b50-31b4fcaaaf51	0	初始化数据	2025-12-02 00:10:58.132735	2025-12-02 00:10:58.132736
+源码代码	sys_git_code	https://github.com/1014TaoTao/FastapiAdmin.git	t	11	563d36f2-d6c0-4694-a62c-0f99676fab56	0	初始化数据	2025-12-02 00:10:58.132738	2025-12-02 00:10:58.132739
+项目版本	sys_web_version	2.0.0	t	12	f9f755fb-5ccd-44e5-a8f9-e7f9a0e5fedb	0	初始化数据	2025-12-02 00:10:58.132741	2025-12-02 00:10:58.132742
+演示模式启用	demo_enable	false	t	13	eb56c47b-fea1-4e8f-b465-01485774799c	0	初始化数据	2025-12-02 00:10:58.132744	2025-12-02 00:10:58.132745
+演示访问IP白名单	ip_white_list	["127.0.0.1"]	t	14	e0042451-81a7-49c7-998f-b8c6d828343e	0	初始化数据	2025-12-02 00:10:58.132747	2025-12-02 00:10:58.132748
+接口白名单	white_api_list_path	["/api/v1/system/auth/login", "/api/v1/system/auth/token/refresh", "/api/v1/system/auth/captcha/get", "/api/v1/system/auth/logout", "/api/v1/system/config/info", "/api/v1/system/user/current/info", "/api/v1/system/notice/available"]	t	15	c8504f90-a0b3-4a1a-9045-2b6f2feb8f5d	0	初始化数据	2025-12-02 00:10:58.13275	2025-12-02 00:10:58.13275
+访问IP黑名单	ip_black_list	[]	t	16	6a790496-bdd5-43e5-b0bd-5b5b6f6d0121	0	初始化数据	2025-12-02 00:10:58.132753	2025-12-02 00:10:58.132753
 \.
 
 
@@ -3713,7 +3301,7 @@ COPY public.sys_param (config_name, config_key, config_value, config_type, id, u
 -- Data for Name: sys_position; Type: TABLE DATA; Schema: public; Owner: tao
 --
 
-COPY public.sys_position (name, "order", id, uuid, status, description, created_time, updated_time, created_id, updated_id, tenant_id) FROM stdin;
+COPY public.sys_position (name, "order", id, uuid, status, description, created_time, updated_time, created_id, updated_id) FROM stdin;
 \.
 
 
@@ -3721,8 +3309,9 @@ COPY public.sys_position (name, "order", id, uuid, status, description, created_
 -- Data for Name: sys_role; Type: TABLE DATA; Schema: public; Owner: tao
 --
 
-COPY public.sys_role (name, code, "order", data_scope, id, uuid, status, description, created_time, updated_time, created_id, updated_id, tenant_id) FROM stdin;
-管理员角色	ADMIN	1	4	1	4a2c80e3-8da7-4d54-8424-4758d707e1dc	0	初始化角色	2025-11-29 14:16:23.965653	2025-11-29 14:16:23.965655	1	1	1
+COPY public.sys_role (name, code, "order", data_scope, id, uuid, status, description, created_time, updated_time, created_id, updated_id) FROM stdin;
+管理员角色	ADMIN	1	4	1	c6715468-6d98-45dc-b488-2da91dd6f772	0	初始化角色	2025-12-02 00:10:58.152505	2025-12-02 00:10:58.152506	1	1
+普通角色	COMMON	1	3	2	abc6c624-3ff5-42b3-bf11-2713941bf301	0	初始化角色	2025-12-02 00:10:58.15251	2025-12-02 00:10:58.15251	1	1
 \.
 
 
@@ -3743,20 +3332,11 @@ COPY public.sys_role_menus (role_id, menu_id) FROM stdin;
 
 
 --
--- Data for Name: sys_tenant; Type: TABLE DATA; Schema: public; Owner: tao
---
-
-COPY public.sys_tenant (name, code, start_time, end_time, id, uuid, status, description, created_time, updated_time) FROM stdin;
-运行管理平台	SYSTEM	\N	\N	1	4ef31cc5-1af3-4ba6-919b-575277cb0ef9	0	系统内置租户，用于管理平台全局配置和所有租户	2025-11-29 14:16:23.92777	2025-11-29 14:16:23.927774
-\.
-
-
---
 -- Data for Name: sys_user; Type: TABLE DATA; Schema: public; Owner: tao
 --
 
-COPY public.sys_user (username, password, name, mobile, email, gender, avatar, is_superuser, last_login, gitee_login, github_login, wx_login, qq_login, user_type, salt, dept_id, id, uuid, status, description, created_time, updated_time, created_id, updated_id, tenant_id, customer_id) FROM stdin;
-admin	$2b$12$e2IJgS/cvHgJ0H3G7Xa08OXoXnk6N/NX3IZRtubBDElA0VLZhkNOa	超级管理员	\N	\N	0	https://service.fastapiadmin.com/api/v1/static/image/avatar.png	t	\N	\N	\N	\N	\N	0	123456	1	1	9886f0dc-752d-4e5f-a1cc-a3be5e1fbbea	0	超级管理员	2025-11-29 14:16:23.963215	2025-11-29 14:16:23.963216	\N	\N	1	\N
+COPY public.sys_user (username, password, name, mobile, email, gender, avatar, is_superuser, last_login, gitee_login, github_login, wx_login, qq_login, dept_id, id, uuid, status, description, created_time, updated_time, created_id, updated_id) FROM stdin;
+admin	$2b$12$e2IJgS/cvHgJ0H3G7Xa08OXoXnk6N/NX3IZRtubBDElA0VLZhkNOa	超级管理员	\N	\N	0	https://service.fastapiadmin.com/api/v1/static/image/avatar.png	t	\N	\N	\N	\N	\N	1	1	de604857-ad55-4db6-945d-12c980088838	0	超级管理员	2025-12-02 00:10:58.145552	2025-12-02 00:10:58.145554	\N	\N
 \.
 
 
@@ -3827,13 +3407,6 @@ SELECT pg_catalog.setval('public.gen_table_id_seq', 1, false);
 
 
 --
--- Name: sys_customer_id_seq; Type: SEQUENCE SET; Schema: public; Owner: tao
---
-
-SELECT pg_catalog.setval('public.sys_customer_id_seq', 1, false);
-
-
---
 -- Name: sys_dept_id_seq; Type: SEQUENCE SET; Schema: public; Owner: tao
 --
 
@@ -3865,7 +3438,7 @@ SELECT pg_catalog.setval('public.sys_log_id_seq', 1, false);
 -- Name: sys_menu_id_seq; Type: SEQUENCE SET; Schema: public; Owner: tao
 --
 
-SELECT pg_catalog.setval('public.sys_menu_id_seq', 128, true);
+SELECT pg_catalog.setval('public.sys_menu_id_seq', 112, true);
 
 
 --
@@ -3893,14 +3466,7 @@ SELECT pg_catalog.setval('public.sys_position_id_seq', 1, false);
 -- Name: sys_role_id_seq; Type: SEQUENCE SET; Schema: public; Owner: tao
 --
 
-SELECT pg_catalog.setval('public.sys_role_id_seq', 1, true);
-
-
---
--- Name: sys_tenant_id_seq; Type: SEQUENCE SET; Schema: public; Owner: tao
---
-
-SELECT pg_catalog.setval('public.sys_tenant_id_seq', 1, true);
+SELECT pg_catalog.setval('public.sys_role_id_seq', 2, true);
 
 
 --
@@ -4028,22 +3594,6 @@ ALTER TABLE ONLY public.gen_table
 
 ALTER TABLE ONLY public.gen_table
     ADD CONSTRAINT gen_table_uuid_key UNIQUE (uuid);
-
-
---
--- Name: sys_customer sys_customer_pkey; Type: CONSTRAINT; Schema: public; Owner: tao
---
-
-ALTER TABLE ONLY public.sys_customer
-    ADD CONSTRAINT sys_customer_pkey PRIMARY KEY (id);
-
-
---
--- Name: sys_customer sys_customer_uuid_key; Type: CONSTRAINT; Schema: public; Owner: tao
---
-
-ALTER TABLE ONLY public.sys_customer
-    ADD CONSTRAINT sys_customer_uuid_key UNIQUE (uuid);
 
 
 --
@@ -4215,38 +3765,6 @@ ALTER TABLE ONLY public.sys_role
 
 
 --
--- Name: sys_tenant sys_tenant_code_key; Type: CONSTRAINT; Schema: public; Owner: tao
---
-
-ALTER TABLE ONLY public.sys_tenant
-    ADD CONSTRAINT sys_tenant_code_key UNIQUE (code);
-
-
---
--- Name: sys_tenant sys_tenant_name_key; Type: CONSTRAINT; Schema: public; Owner: tao
---
-
-ALTER TABLE ONLY public.sys_tenant
-    ADD CONSTRAINT sys_tenant_name_key UNIQUE (name);
-
-
---
--- Name: sys_tenant sys_tenant_pkey; Type: CONSTRAINT; Schema: public; Owner: tao
---
-
-ALTER TABLE ONLY public.sys_tenant
-    ADD CONSTRAINT sys_tenant_pkey PRIMARY KEY (id);
-
-
---
--- Name: sys_tenant sys_tenant_uuid_key; Type: CONSTRAINT; Schema: public; Owner: tao
---
-
-ALTER TABLE ONLY public.sys_tenant
-    ADD CONSTRAINT sys_tenant_uuid_key UNIQUE (uuid);
-
-
---
 -- Name: sys_user sys_user_email_key; Type: CONSTRAINT; Schema: public; Owner: tao
 --
 
@@ -4310,20 +3828,6 @@ CREATE INDEX ix_app_ai_mcp_created_id ON public.app_ai_mcp USING btree (created_
 
 
 --
--- Name: ix_app_ai_mcp_customer_id; Type: INDEX; Schema: public; Owner: tao
---
-
-CREATE INDEX ix_app_ai_mcp_customer_id ON public.app_ai_mcp USING btree (customer_id);
-
-
---
--- Name: ix_app_ai_mcp_tenant_id; Type: INDEX; Schema: public; Owner: tao
---
-
-CREATE INDEX ix_app_ai_mcp_tenant_id ON public.app_ai_mcp USING btree (tenant_id);
-
-
---
 -- Name: ix_app_ai_mcp_updated_id; Type: INDEX; Schema: public; Owner: tao
 --
 
@@ -4338,31 +3842,10 @@ CREATE INDEX ix_app_job_created_id ON public.app_job USING btree (created_id);
 
 
 --
--- Name: ix_app_job_customer_id; Type: INDEX; Schema: public; Owner: tao
---
-
-CREATE INDEX ix_app_job_customer_id ON public.app_job USING btree (customer_id);
-
-
---
 -- Name: ix_app_job_log_job_id; Type: INDEX; Schema: public; Owner: tao
 --
 
 CREATE INDEX ix_app_job_log_job_id ON public.app_job_log USING btree (job_id);
-
-
---
--- Name: ix_app_job_log_tenant_id; Type: INDEX; Schema: public; Owner: tao
---
-
-CREATE INDEX ix_app_job_log_tenant_id ON public.app_job_log USING btree (tenant_id);
-
-
---
--- Name: ix_app_job_tenant_id; Type: INDEX; Schema: public; Owner: tao
---
-
-CREATE INDEX ix_app_job_tenant_id ON public.app_job USING btree (tenant_id);
 
 
 --
@@ -4377,20 +3860,6 @@ CREATE INDEX ix_app_job_updated_id ON public.app_job USING btree (updated_id);
 --
 
 CREATE INDEX ix_app_myapp_created_id ON public.app_myapp USING btree (created_id);
-
-
---
--- Name: ix_app_myapp_customer_id; Type: INDEX; Schema: public; Owner: tao
---
-
-CREATE INDEX ix_app_myapp_customer_id ON public.app_myapp USING btree (customer_id);
-
-
---
--- Name: ix_app_myapp_tenant_id; Type: INDEX; Schema: public; Owner: tao
---
-
-CREATE INDEX ix_app_myapp_tenant_id ON public.app_myapp USING btree (tenant_id);
 
 
 --
@@ -4415,24 +3884,17 @@ CREATE INDEX ix_gen_demo_created_id ON public.gen_demo USING btree (created_id);
 
 
 --
--- Name: ix_gen_demo_customer_id; Type: INDEX; Schema: public; Owner: tao
---
-
-CREATE INDEX ix_gen_demo_customer_id ON public.gen_demo USING btree (customer_id);
-
-
---
--- Name: ix_gen_demo_tenant_id; Type: INDEX; Schema: public; Owner: tao
---
-
-CREATE INDEX ix_gen_demo_tenant_id ON public.gen_demo USING btree (tenant_id);
-
-
---
 -- Name: ix_gen_demo_updated_id; Type: INDEX; Schema: public; Owner: tao
 --
 
 CREATE INDEX ix_gen_demo_updated_id ON public.gen_demo USING btree (updated_id);
+
+
+--
+-- Name: ix_gen_table_column_created_id; Type: INDEX; Schema: public; Owner: tao
+--
+
+CREATE INDEX ix_gen_table_column_created_id ON public.gen_table_column USING btree (created_id);
 
 
 --
@@ -4443,31 +3905,24 @@ CREATE INDEX ix_gen_table_column_table_id ON public.gen_table_column USING btree
 
 
 --
--- Name: ix_sys_customer_code; Type: INDEX; Schema: public; Owner: tao
+-- Name: ix_gen_table_column_updated_id; Type: INDEX; Schema: public; Owner: tao
 --
 
-CREATE INDEX ix_sys_customer_code ON public.sys_customer USING btree (code);
-
-
---
--- Name: ix_sys_customer_created_id; Type: INDEX; Schema: public; Owner: tao
---
-
-CREATE INDEX ix_sys_customer_created_id ON public.sys_customer USING btree (created_id);
+CREATE INDEX ix_gen_table_column_updated_id ON public.gen_table_column USING btree (updated_id);
 
 
 --
--- Name: ix_sys_customer_tenant_id; Type: INDEX; Schema: public; Owner: tao
+-- Name: ix_gen_table_created_id; Type: INDEX; Schema: public; Owner: tao
 --
 
-CREATE INDEX ix_sys_customer_tenant_id ON public.sys_customer USING btree (tenant_id);
+CREATE INDEX ix_gen_table_created_id ON public.gen_table USING btree (created_id);
 
 
 --
--- Name: ix_sys_customer_updated_id; Type: INDEX; Schema: public; Owner: tao
+-- Name: ix_gen_table_updated_id; Type: INDEX; Schema: public; Owner: tao
 --
 
-CREATE INDEX ix_sys_customer_updated_id ON public.sys_customer USING btree (updated_id);
+CREATE INDEX ix_gen_table_updated_id ON public.gen_table USING btree (updated_id);
 
 
 --
@@ -4485,31 +3940,10 @@ CREATE INDEX ix_sys_dept_parent_id ON public.sys_dept USING btree (parent_id);
 
 
 --
--- Name: ix_sys_dept_tenant_id; Type: INDEX; Schema: public; Owner: tao
---
-
-CREATE INDEX ix_sys_dept_tenant_id ON public.sys_dept USING btree (tenant_id);
-
-
---
 -- Name: ix_sys_log_created_id; Type: INDEX; Schema: public; Owner: tao
 --
 
 CREATE INDEX ix_sys_log_created_id ON public.sys_log USING btree (created_id);
-
-
---
--- Name: ix_sys_log_customer_id; Type: INDEX; Schema: public; Owner: tao
---
-
-CREATE INDEX ix_sys_log_customer_id ON public.sys_log USING btree (customer_id);
-
-
---
--- Name: ix_sys_log_tenant_id; Type: INDEX; Schema: public; Owner: tao
---
-
-CREATE INDEX ix_sys_log_tenant_id ON public.sys_log USING btree (tenant_id);
 
 
 --
@@ -4534,20 +3968,6 @@ CREATE INDEX ix_sys_notice_created_id ON public.sys_notice USING btree (created_
 
 
 --
--- Name: ix_sys_notice_customer_id; Type: INDEX; Schema: public; Owner: tao
---
-
-CREATE INDEX ix_sys_notice_customer_id ON public.sys_notice USING btree (customer_id);
-
-
---
--- Name: ix_sys_notice_tenant_id; Type: INDEX; Schema: public; Owner: tao
---
-
-CREATE INDEX ix_sys_notice_tenant_id ON public.sys_notice USING btree (tenant_id);
-
-
---
 -- Name: ix_sys_notice_updated_id; Type: INDEX; Schema: public; Owner: tao
 --
 
@@ -4559,13 +3979,6 @@ CREATE INDEX ix_sys_notice_updated_id ON public.sys_notice USING btree (updated_
 --
 
 CREATE INDEX ix_sys_position_created_id ON public.sys_position USING btree (created_id);
-
-
---
--- Name: ix_sys_position_tenant_id; Type: INDEX; Schema: public; Owner: tao
---
-
-CREATE INDEX ix_sys_position_tenant_id ON public.sys_position USING btree (tenant_id);
 
 
 --
@@ -4590,13 +4003,6 @@ CREATE INDEX ix_sys_role_created_id ON public.sys_role USING btree (created_id);
 
 
 --
--- Name: ix_sys_role_tenant_id; Type: INDEX; Schema: public; Owner: tao
---
-
-CREATE INDEX ix_sys_role_tenant_id ON public.sys_role USING btree (tenant_id);
-
-
---
 -- Name: ix_sys_role_updated_id; Type: INDEX; Schema: public; Owner: tao
 --
 
@@ -4611,24 +4017,10 @@ CREATE INDEX ix_sys_user_created_id ON public.sys_user USING btree (created_id);
 
 
 --
--- Name: ix_sys_user_customer_id; Type: INDEX; Schema: public; Owner: tao
---
-
-CREATE INDEX ix_sys_user_customer_id ON public.sys_user USING btree (customer_id);
-
-
---
 -- Name: ix_sys_user_dept_id; Type: INDEX; Schema: public; Owner: tao
 --
 
 CREATE INDEX ix_sys_user_dept_id ON public.sys_user USING btree (dept_id);
-
-
---
--- Name: ix_sys_user_tenant_id; Type: INDEX; Schema: public; Owner: tao
---
-
-CREATE INDEX ix_sys_user_tenant_id ON public.sys_user USING btree (tenant_id);
 
 
 --
@@ -4644,22 +4036,6 @@ CREATE INDEX ix_sys_user_updated_id ON public.sys_user USING btree (updated_id);
 
 ALTER TABLE ONLY public.app_ai_mcp
     ADD CONSTRAINT app_ai_mcp_created_id_fkey FOREIGN KEY (created_id) REFERENCES public.sys_user(id) ON UPDATE CASCADE ON DELETE SET NULL;
-
-
---
--- Name: app_ai_mcp app_ai_mcp_customer_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: tao
---
-
-ALTER TABLE ONLY public.app_ai_mcp
-    ADD CONSTRAINT app_ai_mcp_customer_id_fkey FOREIGN KEY (customer_id) REFERENCES public.sys_customer(id) ON UPDATE CASCADE ON DELETE CASCADE;
-
-
---
--- Name: app_ai_mcp app_ai_mcp_tenant_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: tao
---
-
-ALTER TABLE ONLY public.app_ai_mcp
-    ADD CONSTRAINT app_ai_mcp_tenant_id_fkey FOREIGN KEY (tenant_id) REFERENCES public.sys_tenant(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
@@ -4679,35 +4055,11 @@ ALTER TABLE ONLY public.app_job
 
 
 --
--- Name: app_job app_job_customer_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: tao
---
-
-ALTER TABLE ONLY public.app_job
-    ADD CONSTRAINT app_job_customer_id_fkey FOREIGN KEY (customer_id) REFERENCES public.sys_customer(id) ON UPDATE CASCADE ON DELETE CASCADE;
-
-
---
 -- Name: app_job_log app_job_log_job_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: tao
 --
 
 ALTER TABLE ONLY public.app_job_log
     ADD CONSTRAINT app_job_log_job_id_fkey FOREIGN KEY (job_id) REFERENCES public.app_job(id) ON DELETE CASCADE;
-
-
---
--- Name: app_job_log app_job_log_tenant_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: tao
---
-
-ALTER TABLE ONLY public.app_job_log
-    ADD CONSTRAINT app_job_log_tenant_id_fkey FOREIGN KEY (tenant_id) REFERENCES public.sys_tenant(id) ON UPDATE CASCADE ON DELETE CASCADE;
-
-
---
--- Name: app_job app_job_tenant_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: tao
---
-
-ALTER TABLE ONLY public.app_job
-    ADD CONSTRAINT app_job_tenant_id_fkey FOREIGN KEY (tenant_id) REFERENCES public.sys_tenant(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
@@ -4727,22 +4079,6 @@ ALTER TABLE ONLY public.app_myapp
 
 
 --
--- Name: app_myapp app_myapp_customer_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: tao
---
-
-ALTER TABLE ONLY public.app_myapp
-    ADD CONSTRAINT app_myapp_customer_id_fkey FOREIGN KEY (customer_id) REFERENCES public.sys_customer(id) ON UPDATE CASCADE ON DELETE CASCADE;
-
-
---
--- Name: app_myapp app_myapp_tenant_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: tao
---
-
-ALTER TABLE ONLY public.app_myapp
-    ADD CONSTRAINT app_myapp_tenant_id_fkey FOREIGN KEY (tenant_id) REFERENCES public.sys_tenant(id) ON UPDATE CASCADE ON DELETE CASCADE;
-
-
---
 -- Name: app_myapp app_myapp_updated_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: tao
 --
 
@@ -4759,27 +4095,19 @@ ALTER TABLE ONLY public.gen_demo
 
 
 --
--- Name: gen_demo gen_demo_customer_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: tao
---
-
-ALTER TABLE ONLY public.gen_demo
-    ADD CONSTRAINT gen_demo_customer_id_fkey FOREIGN KEY (customer_id) REFERENCES public.sys_customer(id) ON UPDATE CASCADE ON DELETE CASCADE;
-
-
---
--- Name: gen_demo gen_demo_tenant_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: tao
---
-
-ALTER TABLE ONLY public.gen_demo
-    ADD CONSTRAINT gen_demo_tenant_id_fkey FOREIGN KEY (tenant_id) REFERENCES public.sys_tenant(id) ON UPDATE CASCADE ON DELETE CASCADE;
-
-
---
 -- Name: gen_demo gen_demo_updated_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: tao
 --
 
 ALTER TABLE ONLY public.gen_demo
     ADD CONSTRAINT gen_demo_updated_id_fkey FOREIGN KEY (updated_id) REFERENCES public.sys_user(id) ON UPDATE CASCADE ON DELETE SET NULL;
+
+
+--
+-- Name: gen_table_column gen_table_column_created_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: tao
+--
+
+ALTER TABLE ONLY public.gen_table_column
+    ADD CONSTRAINT gen_table_column_created_id_fkey FOREIGN KEY (created_id) REFERENCES public.sys_user(id) ON UPDATE CASCADE ON DELETE SET NULL;
 
 
 --
@@ -4791,27 +4119,27 @@ ALTER TABLE ONLY public.gen_table_column
 
 
 --
--- Name: sys_customer sys_customer_created_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: tao
+-- Name: gen_table_column gen_table_column_updated_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: tao
 --
 
-ALTER TABLE ONLY public.sys_customer
-    ADD CONSTRAINT sys_customer_created_id_fkey FOREIGN KEY (created_id) REFERENCES public.sys_user(id) ON UPDATE CASCADE ON DELETE SET NULL;
-
-
---
--- Name: sys_customer sys_customer_tenant_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: tao
---
-
-ALTER TABLE ONLY public.sys_customer
-    ADD CONSTRAINT sys_customer_tenant_id_fkey FOREIGN KEY (tenant_id) REFERENCES public.sys_tenant(id) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE ONLY public.gen_table_column
+    ADD CONSTRAINT gen_table_column_updated_id_fkey FOREIGN KEY (updated_id) REFERENCES public.sys_user(id) ON UPDATE CASCADE ON DELETE SET NULL;
 
 
 --
--- Name: sys_customer sys_customer_updated_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: tao
+-- Name: gen_table gen_table_created_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: tao
 --
 
-ALTER TABLE ONLY public.sys_customer
-    ADD CONSTRAINT sys_customer_updated_id_fkey FOREIGN KEY (updated_id) REFERENCES public.sys_user(id) ON UPDATE CASCADE ON DELETE SET NULL;
+ALTER TABLE ONLY public.gen_table
+    ADD CONSTRAINT gen_table_created_id_fkey FOREIGN KEY (created_id) REFERENCES public.sys_user(id) ON UPDATE CASCADE ON DELETE SET NULL;
+
+
+--
+-- Name: gen_table gen_table_updated_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: tao
+--
+
+ALTER TABLE ONLY public.gen_table
+    ADD CONSTRAINT gen_table_updated_id_fkey FOREIGN KEY (updated_id) REFERENCES public.sys_user(id) ON UPDATE CASCADE ON DELETE SET NULL;
 
 
 --
@@ -4820,14 +4148,6 @@ ALTER TABLE ONLY public.sys_customer
 
 ALTER TABLE ONLY public.sys_dept
     ADD CONSTRAINT sys_dept_parent_id_fkey FOREIGN KEY (parent_id) REFERENCES public.sys_dept(id) ON UPDATE CASCADE ON DELETE SET NULL;
-
-
---
--- Name: sys_dept sys_dept_tenant_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: tao
---
-
-ALTER TABLE ONLY public.sys_dept
-    ADD CONSTRAINT sys_dept_tenant_id_fkey FOREIGN KEY (tenant_id) REFERENCES public.sys_tenant(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
@@ -4844,22 +4164,6 @@ ALTER TABLE ONLY public.sys_dict_data
 
 ALTER TABLE ONLY public.sys_log
     ADD CONSTRAINT sys_log_created_id_fkey FOREIGN KEY (created_id) REFERENCES public.sys_user(id) ON UPDATE CASCADE ON DELETE SET NULL;
-
-
---
--- Name: sys_log sys_log_customer_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: tao
---
-
-ALTER TABLE ONLY public.sys_log
-    ADD CONSTRAINT sys_log_customer_id_fkey FOREIGN KEY (customer_id) REFERENCES public.sys_customer(id) ON UPDATE CASCADE ON DELETE CASCADE;
-
-
---
--- Name: sys_log sys_log_tenant_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: tao
---
-
-ALTER TABLE ONLY public.sys_log
-    ADD CONSTRAINT sys_log_tenant_id_fkey FOREIGN KEY (tenant_id) REFERENCES public.sys_tenant(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
@@ -4887,22 +4191,6 @@ ALTER TABLE ONLY public.sys_notice
 
 
 --
--- Name: sys_notice sys_notice_customer_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: tao
---
-
-ALTER TABLE ONLY public.sys_notice
-    ADD CONSTRAINT sys_notice_customer_id_fkey FOREIGN KEY (customer_id) REFERENCES public.sys_customer(id) ON UPDATE CASCADE ON DELETE CASCADE;
-
-
---
--- Name: sys_notice sys_notice_tenant_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: tao
---
-
-ALTER TABLE ONLY public.sys_notice
-    ADD CONSTRAINT sys_notice_tenant_id_fkey FOREIGN KEY (tenant_id) REFERENCES public.sys_tenant(id) ON UPDATE CASCADE ON DELETE CASCADE;
-
-
---
 -- Name: sys_notice sys_notice_updated_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: tao
 --
 
@@ -4916,14 +4204,6 @@ ALTER TABLE ONLY public.sys_notice
 
 ALTER TABLE ONLY public.sys_position
     ADD CONSTRAINT sys_position_created_id_fkey FOREIGN KEY (created_id) REFERENCES public.sys_user(id) ON UPDATE CASCADE ON DELETE SET NULL;
-
-
---
--- Name: sys_position sys_position_tenant_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: tao
---
-
-ALTER TABLE ONLY public.sys_position
-    ADD CONSTRAINT sys_position_tenant_id_fkey FOREIGN KEY (tenant_id) REFERENCES public.sys_tenant(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
@@ -4975,14 +4255,6 @@ ALTER TABLE ONLY public.sys_role_menus
 
 
 --
--- Name: sys_role sys_role_tenant_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: tao
---
-
-ALTER TABLE ONLY public.sys_role
-    ADD CONSTRAINT sys_role_tenant_id_fkey FOREIGN KEY (tenant_id) REFERENCES public.sys_tenant(id) ON UPDATE CASCADE ON DELETE CASCADE;
-
-
---
 -- Name: sys_role sys_role_updated_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: tao
 --
 
@@ -4996,14 +4268,6 @@ ALTER TABLE ONLY public.sys_role
 
 ALTER TABLE ONLY public.sys_user
     ADD CONSTRAINT sys_user_created_id_fkey FOREIGN KEY (created_id) REFERENCES public.sys_user(id) ON UPDATE CASCADE ON DELETE SET NULL;
-
-
---
--- Name: sys_user sys_user_customer_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: tao
---
-
-ALTER TABLE ONLY public.sys_user
-    ADD CONSTRAINT sys_user_customer_id_fkey FOREIGN KEY (customer_id) REFERENCES public.sys_customer(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
@@ -5044,14 +4308,6 @@ ALTER TABLE ONLY public.sys_user_roles
 
 ALTER TABLE ONLY public.sys_user_roles
     ADD CONSTRAINT sys_user_roles_user_id_fkey FOREIGN KEY (user_id) REFERENCES public.sys_user(id) ON UPDATE CASCADE ON DELETE CASCADE;
-
-
---
--- Name: sys_user sys_user_tenant_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: tao
---
-
-ALTER TABLE ONLY public.sys_user
-    ADD CONSTRAINT sys_user_tenant_id_fkey FOREIGN KEY (tenant_id) REFERENCES public.sys_tenant(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --

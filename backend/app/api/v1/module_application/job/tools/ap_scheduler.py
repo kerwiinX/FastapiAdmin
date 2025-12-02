@@ -116,7 +116,8 @@ class SchedulerUtil:
                     job_message=job_message,
                     status=status,
                     exception_info=exception_info,
-                    create_time=datetime.now(),
+                    created_time=datetime.now(),
+                    updated_time=datetime.now(),
                     job_id=job_id,
                 )
                 

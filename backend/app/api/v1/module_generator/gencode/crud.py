@@ -1,4 +1,4 @@
-# -*- coding:utf-8 -*-
+# -*- coding: utf-8 -*-
 
 from sqlalchemy.engine.row import Row
 from sqlalchemy import and_, select, text

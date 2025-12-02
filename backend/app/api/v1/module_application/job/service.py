@@ -294,7 +294,8 @@ class JobLogService:
             'job_message': '日志信息',
             'exception_info': '异常信息',
             'status': '执行状态',
-            'create_time': '创建时间',
+            'created_time': '创建时间',
+            'updated_time': '更新时间',
         }
 
         # 复制数据并转换状态
